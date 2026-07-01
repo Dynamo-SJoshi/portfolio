@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreedhar S. Joshi | Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Shreedhar S. Joshi - Dual Degree student: B.Tech in Electronics & Communication at IIIT Surat and BS in Data Science at IIT Madras. Exploring secure systems, analytics, and embedded platforms.">
+    <meta name="keywords" content="Shreedhar Joshi, Shreedhar S. Joshi, IIIT Surat, IIT Madras, Portfolio, Student, Cybersecurity, SafeGate, ASTRA Space Club, Embedded Systems">
+    <meta name="author" content="Shreedhar S. Joshi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shreedhar S. Joshi | Portfolio">
+    <meta property="og:description" content="Dual Degree engineering student at IIIT Surat & IIT Madras. Building projects in security, data analysis, and hardware.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Dynamo-SJoshi/portfolio/main/og-image.jpg">
+
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind for custom colors, fonts, and dark mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#004b8c',
+                            dark: '#60a5fa',
+                            DEFAULT: '#004b8c'
+                        },
+                        secondary: {
+                            light: '#1e293b',
+                            dark: '#f8fafc',
+                            DEFAULT: '#1e293b'
+                        },
+                        accent: '#3b82f6',
+                        bgLight: '#f8fafc',
+                        bgDark: '#090d16',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Load Google Fonts (Inter for body, Fira Code for accents) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Load FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS for advanced effects and animations -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Theme Transition */
+        .theme-transition {
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        color 0.3s ease, 
+                        box-shadow 0.3s ease;
+        }
+        
+        /* Advanced Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+        }
+        
+        .dark .glass-card {
+            background: rgba(19, 27, 46, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        
+        .dark .glass-nav {
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        
+        .tech-pill {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 48px;
+            height: 4.5px;
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #004b8c, #3b82f6);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark .section-heading::after {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        }
+        
+        .section-heading:hover::after {
+            width: 80px;
+        }
+
+        /* Custom styling for inline GitHub chart labels and cells */
+        :root {
+            --gh-color-0: #eeeeee;
+            --gh-color-1: #dceafd;
+            --gh-color-2: #96c0fc;
+            --gh-color-3: #5097fa;
+            --gh-color-4: #0b6df4;
+        }
+        .dark {
+            --gh-color-0: #1e293b; /* Slate 800 */
+            --gh-color-1: rgba(255, 255, 255, 0.2);
+            --gh-color-2: rgba(255, 255, 255, 0.45);
+            --gh-color-3: rgba(255, 255, 255, 0.75);
+            --gh-color-4: #ffffff; /* Solid White */
+        }
+        #gh-chart-container svg rect {
+            rx: 2px !important;
+            ry: 2px !important;
+        }
+        #gh-chart-container svg text {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 9px !important;
+            font-weight: 500 !important;
+            fill: #64748b !important; /* Slate 500 */
+        }
+        .dark #gh-chart-container svg text {
+            fill: #ffffff !important; /* Pure white months in dark mode */
+        }
+
+        /* Custom scrollbar in dark mode for overflow containers */
+        .dark .overflow-x-auto::-webkit-scrollbar {
+            height: 6px;
+        }
+        .dark .overflow-x-auto::-webkit-scrollbar-track {
+            background: #090d16 !important;
+            border-radius: 9999px;
+        }
+        .dark .overflow-x-auto::-webkit-scrollbar-thumb {
+            background: #1e293b !important;
+            border-radius: 9999px;
+        }
+
+        .project-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        opacity 0.4s ease;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid rgba(226, 232, 240, 0.8);
+            transition: border-color 0.5s ease;
+        }
+        
+        .dark .timeline-item {
+            border-left: 2px solid rgba(51, 65, 85, 0.6);
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+            border-left-color: transparent;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #004b8c;
+            border: 4px solid #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 0px rgba(0, 75, 140, 0.2);
+        }
+        
+        .dark .timeline-item::before {
+            background-color: #60a5fa;
+            border-color: #090d16;
+            box-shadow: 0 0 0 0px rgba(96, 165, 250, 0.2);
+        }
+        
+        .timeline-item:hover::before {
+            transform: scale(1.25);
+            box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Scroll Animation Triggers */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.5deg); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.55; transform: scale(1.05); }
+        }
+        
+        .animate-glow {
+            animation: pulse-glow 5s ease-in-out infinite;
+        }
+
+        @keyframes rotate-clockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-spin-slow {
+            animation: rotate-clockwise 24s linear infinite;
+        }
+        
+        @keyframes rotate-counter {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        
+        .animate-spin-reverse-slow {
+            animation: rotate-counter 30s linear infinite;
+        }
+
+        /* Typing cursor effect */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.75s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { color: transparent }
+            50% { color: #3b82f6 }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 dark:bg-[#090d16] dark:text-slate-300 antialiased selection:bg-[#004b8c] selection:text-white dark:selection:bg-blue-500 theme-transition">
+
+    <!-- Global Header/Nav -->
+    <header>
+        <nav class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-slate-200/50 dark:border-slate-800/40 shadow-sm py-4" id="navbar">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-10">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#" class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight font-mono hover:opacity-80 transition-opacity" id="nav-logo">
+                            SJ<span class="text-[#004b8c] dark:text-blue-400">.</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#about" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">About</a>
+                        <a href="#skills" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Skills</a>
+                        <a href="#experience" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Experience</a>
+                        <a href="#projects" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Projects</a>
+                        
+                        <!-- Dark Mode Toggle -->
+                        <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 text-slate-600 dark:text-slate-400 transition-colors" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                            <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+                        </button>
+                        
+                        <a href="cv.pdf" download="Shreedhar_Joshi_CV.pdf" class="px-4 py-2 text-sm font-semibold rounded-full border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 hover:border-[#004b8c] dark:hover:border-blue-400 transition-all">Resume</a>
+                        <a href="#contact" class="px-5 py-2.5 text-sm font-medium rounded-full bg-[#004b8c] dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">Contact Me</a>
+                    </div>
+
+                    <!-- Mobile Navigation Controls -->
+                    <div class="md:hidden flex items-center gap-4">
+                        <!-- Dark Mode Toggle Mobile -->
+                        <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 text-slate-600 dark:text-slate-400 transition-colors" aria-label="Toggle Theme">
+                            <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                            <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+                        </button>
+
+                        <button id="mobile-menu-button" class="text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 focus:outline-none" aria-label="Open Mobile Menu">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-[#090d16]/95 border-t border-slate-100 dark:border-slate-800/50 absolute w-full shadow-lg transition-all duration-300">
+                <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col items-center">
+                    <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">About</a>
+                    <a href="#skills" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Skills</a>
+                    <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Experience</a>
+                    <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Projects</a>
+                    <a href="cv.pdf" download="Shreedhar_Joshi_CV.pdf" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Resume</a>
+                    <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium text-[#004b8c] dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center font-bold">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="about" class="pt-28 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto min-h-screen flex flex-col justify-center">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                
+                <!-- Text Content -->
+                <div class="w-full lg:w-3/5 space-y-6 fade-in-up">
+                    <p class="text-[#004b8c] dark:text-blue-400 font-mono font-medium tracking-wide">Hi, my name is</p>
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold text-slate-800 dark:text-white tracking-tight leading-tight">
+                        Shreedhar Joshi.
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-slate-500 dark:text-slate-400 mt-2">
+                        <span id="typing-sub" class="typing-cursor"></span>
+                    </h2>
+                    
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed pt-2">
+                        I am an undergraduate student currently pursuing a concurrent dual degree: a <strong>B.Tech in ECE at IIIT Surat</strong> and a <strong>BS in Data Science at IIT Madras</strong>. I am building projects in backend systems, data analysis, and hardware.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="https://github.com/Dynamo-SJoshi" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 text-white font-medium hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 transition-all shadow-md hover:shadow-lg" id="btn-github">
+                            <i class="fa-brands fa-github text-xl"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/shreedhar-s-joshi-4771553bb/" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#004b8c] dark:bg-blue-600 text-white font-medium hover:bg-blue-800 dark:hover:bg-blue-700 transition-all shadow-md hover:shadow-lg" id="btn-linkedin">
+                            <i class="fa-brands fa-linkedin text-xl"></i> LinkedIn
+                        </a>
+                        <a href="https://codeforces.com/profile/sj01_codeForces" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all shadow-sm" id="btn-codeforces">
+                            <i class="fa-solid fa-code text-[#004b8c] dark:text-blue-400"></i> Codeforces
+                        </a>
+                    </div>
+                </div>
+
+                <!-- High-tech Custom SVG Graphic -->
+                <div class="w-full lg:w-2/5 flex justify-center fade-in-up delay-200">
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl border border-slate-200/50 dark:border-slate-800/40 p-3 glass-card shadow-xl transition-all duration-500 overflow-hidden group">
+                        
+                        <!-- Glow behind the graphic -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/25 dark:to-purple-500/5 z-0 animate-glow"></div>
+                        
+                        <svg class="w-full h-full relative z-10 animate-float" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="svg-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+                                </radialGradient>
+                                <linearGradient id="g-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#004b8c" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                                <linearGradient id="g-grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#8b5cf6" />
+                                    <stop offset="100%" stop-color="#3b82f6" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <circle cx="250" cy="250" r="190" fill="url(#svg-glow)" />
+
+                            <!-- Space Sci Club Orbits -->
+                            <ellipse cx="250" cy="250" rx="170" ry="50" stroke="url(#g-grad1)" stroke-width="1.5" stroke-dasharray="8 6" transform="rotate(-30 250 250)" class="animate-spin-slow origin-center" />
+                            <ellipse cx="250" cy="250" rx="150" ry="60" stroke="url(#g-grad2)" stroke-width="1.5" transform="rotate(45 250 250)" class="animate-spin-reverse-slow origin-center" />
+
+                            <!-- Data Science Nodes -->
+                            <circle cx="100" cy="250" r="6" fill="#3b82f6" class="animate-pulse" />
+                            <circle cx="400" cy="250" r="6" fill="#10b981" class="animate-pulse" />
+                            <circle cx="250" cy="80" r="5" fill="#a855f7" class="animate-pulse" />
+                            <circle cx="250" cy="420" r="5" fill="#3b82f6" class="animate-pulse" />
+
+                            <!-- Hardware circuits (ECE) -->
+                            <path d="M 250 250 L 140 180 L 70 180" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="70" cy="180" r="4.5" fill="#3b82f6" />
+                            
+                            <path d="M 250 250 L 360 320 L 430 320" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="430" cy="320" r="4.5" fill="#a855f7" />
+
+                            <!-- Silicon core micro-controller -->
+                            <rect x="205" y="205" width="90" height="90" rx="16" fill="#1e293b" stroke="#3b82f6" stroke-width="2.5" class="shadow-2xl" />
+                            
+                            <!-- Chip pins -->
+                            <line x1="225" y1="205" x2="225" y2="195" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="250" y1="205" x2="250" y2="195" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="275" y1="205" x2="275" y2="195" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            
+                            <line x1="225" y1="295" x2="225" y2="305" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="250" y1="295" x2="250" y2="305" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="275" y1="295" x2="275" y2="305" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+
+                            <line x1="205" y1="225" x2="195" y2="225" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="205" y1="250" x2="195" y2="250" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="205" y1="275" x2="195" y2="275" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+
+                            <line x1="295" y1="225" x2="305" y2="225" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="295" y1="250" x2="305" y2="250" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+                            <line x1="295" y1="275" x2="305" y2="275" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" />
+
+                            <!-- Central Core Glow -->
+                            <circle cx="250" cy="250" r="18" fill="#3b82f6" fill-opacity="0.3" class="animate-ping origin-center" />
+                            
+                            <!-- Astronaut Helmet Center SVG -->
+                            <g transform="translate(233, 233) scale(0.68)">
+                                <path d="M25 5C13.95 5 5 13.95 5 25C5 30.55 7.25 35.55 10.85 39.15C11.55 39.85 12.55 40 13.5 39.7C15.5 39.1 19.45 38 25 38C30.55 38 34.5 39.1 36.5 39.7C37.45 40 38.45 39.85 39.15 39.15C42.75 35.55 45 30.55 45 25C45 13.95 36.05 5 25 5Z" fill="#3b82f6" fill-opacity="0.25" />
+                                <path d="M25 9C16.16 9 9 16.16 9 25C9 28.53 10.15 31.79 12.09 34.44C12.39 34.85 13 34.91 13.38 34.56C16.31 31.87 20.47 31 25 31C29.53 31 33.69 31.87 36.62 34.56C37 34.91 37.61 34.85 37.91 34.44C39.85 31.79 41 28.53 41 25C41 16.16 33.84 9 25 9Z" fill="#60a5fa" />
+                                <circle cx="25" cy="21" r="5" fill="#1e293b" />
+                                <path d="M15 25H35" stroke="#1e293b" stroke-width="2" stroke-linecap="round" />
+                            </g>
+                        </svg>
+                        
+                        <!-- Floating graphic dots -->
+                        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-[radial-gradient(#004b8c_2px,transparent_2px)] [background-size:12px_12px] opacity-15 dark:opacity-25 -z-10"></div>
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-[radial-gradient(#3b82f6_2px,transparent_2px)] [background-size:12px_12px] opacity-15 dark:opacity-25 -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Skills -->
+        <section id="skills" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] border-y border-slate-200/50 dark:border-slate-800/40 theme-transition">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-16">
+                    
+                    <!-- Education Column -->
+                    <div class="w-full lg:w-1/2 space-y-6 fade-in-up">
+                        <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-education">Education</h2>
+                        
+                        <div class="space-y-6 mt-8">
+                            <!-- IIIT Surat -->
+                            <div class="glass-card p-6 rounded-2xl border hover:shadow-md transition-shadow relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 w-24 h-24 bg-[#004b8c]/5 dark:bg-blue-400/5 rounded-bl-full z-0 pointer-events-none"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-lg font-bold text-slate-800 dark:text-white">IIIT, Surat</h3>
+                                        <span class="text-xs font-mono bg-[#004b8c]/10 text-[#004b8c] dark:bg-blue-500/10 dark:text-blue-400 px-2 py-1 rounded">2025 - 2029</span>
+                                    </div>
+                                    <p class="text-sm font-semibold text-[#004b8c] dark:text-blue-400 mb-3">B.Tech - Electronics & Communication Engineering</p>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                                        <i class="fa-solid fa-star text-yellow-500 mr-2"></i> GPA (2nd Sem): <span class="font-bold text-slate-800 dark:text-white">8.05 / 10.0</span>
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <span class="text-xs bg-slate-200/60 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 px-2 py-1 rounded">DSA</span>
+                                        <span class="text-xs bg-slate-200/60 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 px-2 py-1 rounded">C Programming</span>
+                                        <span class="text-xs bg-slate-200/60 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 px-2 py-1 rounded">Discrete Math</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- IIT Madras -->
+                            <div class="glass-card p-6 rounded-2xl border hover:shadow-md transition-shadow relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 w-24 h-24 bg-[#3b82f6]/5 dark:bg-blue-400/5 rounded-bl-full z-0 pointer-events-none"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-lg font-bold text-slate-800 dark:text-white">IIT, Madras</h3>
+                                        <span class="text-xs font-mono bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400 px-2 py-1 rounded">Jul 2025 - Present</span>
+                                    </div>
+                                    <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">BS - Data Science and Applications (Concurrent)</p>
+                                    <div class="flex flex-wrap gap-2 mt-3">
+                                        <span class="text-xs bg-slate-200/60 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 px-2 py-1 rounded">Machine Learning</span>
+                                        <span class="text-xs bg-slate-200/60 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 px-2 py-1 rounded">Statistics</span>
+                                        <span class="text-xs bg-slate-200/60 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 px-2 py-1 rounded">Python Analytics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Column -->
+                    <div class="w-full lg:w-1/2 space-y-6 fade-in-up delay-200">
+                        <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-skills">Technical Arsenal</h2>
+                        
+                        <div class="space-y-6 mt-8">
+                            <div class="p-4 rounded-xl hover:bg-slate-100/30 dark:hover:bg-slate-800/20 transition-all">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-code text-[#004b8c] dark:text-blue-400"></i> Languages
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">C</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Python</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">TypeScript</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">JavaScript</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Embedded C</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">HTML/CSS</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">SQL (PostgreSQL)</span>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl hover:bg-slate-100/30 dark:hover:bg-slate-800/20 transition-all">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-layer-group text-[#004b8c] dark:text-blue-400"></i> Frameworks & Libraries
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">React.js</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Tailwind CSS</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Node.js</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">NumPy</span>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl hover:bg-slate-100/30 dark:hover:bg-slate-800/20 transition-all">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-toolbox text-[#004b8c] dark:text-blue-400"></i> Tools & Hardware
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Docker</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">ClamAV</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Supabase</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Git/GitHub</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Arduino IDE</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Proteus</span>
+                                    <span class="tech-pill px-3 py-1.5 text-xs font-medium rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-[#004b8c] dark:hover:bg-blue-600 hover:text-white hover:border-[#004b8c] dark:hover:border-blue-600 cursor-default">Atmel AVR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Coding Activity Section -->
+        <section id="activity" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] theme-transition">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-activity">Coding Activity</h2>
+                <p class="text-sm text-slate-500 mt-2">Tracking my code commits, open-source work, and competitive programming progress.</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+                    
+                    <!-- GitHub Graph -->
+                    <div class="glass-card p-6 rounded-2xl border flex flex-col justify-between hover:shadow-md transition-shadow fade-in-up">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <i class="fa-brands fa-github text-[#004b8c] dark:text-blue-400 text-xl"></i> GitHub Contributions
+                                </h3>
+                                <a href="https://github.com/Dynamo-SJoshi" target="_blank" class="text-xs font-semibold text-[#004b8c] dark:text-blue-400 hover:underline">View Profile <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></a>
+                            </div>
+                            <div class="bg-white/40 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200/50 dark:border-slate-800/40 flex items-center justify-center overflow-x-auto min-h-[140px]" id="gh-chart-container">
+                                <!-- GitHub Chart API Fallback Image -->
+                                <img id="gh-chart-fallback" src="https://ghchart.rshah.org/3b82f6/Dynamo-SJoshi" alt="Dynamo-SJoshi GitHub Contributions" class="max-w-full min-w-[600px] h-auto dark:opacity-85" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Codeforces Graph -->
+                    <div class="glass-card p-6 rounded-2xl border flex flex-col justify-between hover:shadow-md transition-shadow fade-in-up delay-100">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-code text-[#004b8c] dark:text-blue-400 text-xl"></i> Codeforces Dashboard
+                                </h3>
+                                <a href="https://codeforces.com/profile/sj01_codeForces" target="_blank" class="text-xs font-semibold text-[#004b8c] dark:text-blue-400 hover:underline">View Profile <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></a>
+                            </div>
+
+                            <!-- Codeforces Profile Stats Dashboard -->
+                            <div id="cf-profile-stats" class="grid grid-cols-2 gap-4 mb-6 mt-2">
+                                <div class="bg-white/50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/50 dark:border-slate-800/40 flex flex-col justify-between">
+                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Rating / Rank</span>
+                                    <div>
+                                        <span id="cf-rating" class="text-2xl font-bold text-slate-800 dark:text-white">-</span>
+                                        <span id="cf-rank" class="block text-xs font-bold uppercase mt-1 text-slate-400">-</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white/50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/50 dark:border-slate-800/40 flex flex-col justify-between">
+                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Problems Solved</span>
+                                    <div>
+                                        <span id="cf-solved" class="text-2xl font-bold text-slate-800 dark:text-white">-</span>
+                                        <span id="cf-max-rating" class="block text-xs text-slate-400 mt-1">Max: -</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Dynamic Heatmap Container -->
+                            <div class="bg-white/40 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200/50 dark:border-slate-800/40 flex flex-col items-center justify-center min-h-[140px] relative overflow-hidden">
+                                <div id="cf-loading" class="absolute inset-0 flex items-center justify-center bg-white/60 dark:bg-[#131b2e]/60 z-10">
+                                    <i class="fa-solid fa-spinner animate-spin text-2xl text-[#004b8c] dark:text-blue-400"></i>
+                                </div>
+                                <div class="overflow-x-auto w-full flex justify-center">
+                                    <div class="flex flex-col items-end">
+                                        <!-- Codeforces Grid Render -->
+                                        <div id="cf-grid" class="grid grid-flow-col gap-[3px] p-1 select-none">
+                                            <!-- JavaScript will generate columns and cells here -->
+                                        </div>
+                                        <div class="flex justify-between w-full mt-2 text-[10px] text-slate-400 dark:text-slate-500 px-1 font-mono">
+                                            <span>Less</span>
+                                            <div class="flex gap-[3px] items-center">
+                                                <div class="w-[9px] h-[9px] rounded-[1px] bg-slate-200 dark:bg-slate-800"></div>
+                                                <div class="w-[9px] h-[9px] rounded-[1px] bg-blue-200 dark:bg-white/20"></div>
+                                                <div class="w-[9px] h-[9px] rounded-[1px] bg-blue-400 dark:bg-white/60"></div>
+                                                <div class="w-[9px] h-[9px] rounded-[1px] bg-blue-600 dark:bg-white"></div>
+                                            </div>
+                                            <span>More</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Leadership -->
+        <section id="experience" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] theme-transition">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-heading fade-in-up text-center block mx-auto text-3xl font-bold text-slate-800 dark:text-white" id="heading-experience">Experience & Leadership</h2>
+                
+                <div class="mt-12 space-y-2 fade-in-up delay-200 relative">
+                    <!-- Internship -->
+                    <div class="timeline-item">
+                        <span class="text-xs font-mono text-[#004b8c] dark:text-blue-400 font-bold tracking-wide">Jun 2026 - Jul 2026</span>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1">Summer Intern – Robotics & Embedded Systems</h3>
+                        <h4 class="text-sm font-medium text-slate-400 mb-4">Atmiya University (e-Yantra, IIT Bombay Initiative)</h4>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                            <li>Programmed microcontroller firmware utilizing <strong>Embedded C</strong> and worked with bare-metal registers on <strong>Atmel AVR</strong> chips.</li>
+                            <li>Designed and simulated complex circuit behaviors and physical feedback loops using <strong>Proteus</strong>.</li>
+                            <li>Interfaced analog/digital sensors and processed raw physical values with live loop corrections.</li>
+                        </ul>
+                    </div>
+
+                    <!-- ASTRA Leadership -->
+                    <div class="timeline-item">
+                        <span class="text-xs font-mono text-[#004b8c] dark:text-blue-400 font-bold tracking-wide">Apr 2026 - Present</span>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1">Founder & Student Co-ordinator</h3>
+                        <h4 class="text-sm font-medium text-slate-400 mb-4">ASTRA (Official Space Sciences Club, IIIT Surat)</h4>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                            <li>Established the first astrophysics community at IIIT Surat; authored the organization's charter and framework.</li>
+                            <li>Spearheaded recruitment and successfully executed the inaugural orientation for incoming engineering student members.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors & Awards -->
+        <section id="awards" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-heading fade-in-up text-center block mx-auto text-3xl font-bold text-slate-800 dark:text-white" id="heading-awards">Honors & Awards</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 fade-in-up delay-100">
+                    <div class="glass-card p-6 rounded-2xl border flex gap-4 items-start hover:shadow-md transition-shadow relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-yellow-500/5 rounded-bl-full pointer-events-none"></div>
+                        <i class="fa-solid fa-trophy text-yellow-500 mt-1 text-2xl relative z-10"></i>
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-white">State Topper | NSEJS (May 2022)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Achieved a Top 1% State Rank in the National Standard Examination for Physics, Chemistry, and Biology.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl border flex gap-4 items-start hover:shadow-md transition-shadow relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full pointer-events-none"></div>
+                        <i class="fa-solid fa-award text-blue-500 mt-1 text-2xl relative z-10"></i>
+                        <div class="relative z-10">
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-white">INSPIRE Awardee - MANAK (Jan 2023)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recipient of the DST national award and a grant of INR 10,000 for innovative science pursuit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div class="fade-in-up">
+                        <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-projects">Featured Projects</h2>
+                        <p class="text-sm text-slate-500 mt-2">Explore custom systems, real-time channels, and predictive machine learning models.</p>
+                    </div>
+                    
+                    <!-- Filters -->
+                    <div class="flex flex-wrap gap-2 fade-in-up delay-100" id="project-filters">
+                        <button class="filter-btn active px-4 py-1.5 text-xs font-semibold rounded-full bg-[#004b8c] text-white dark:bg-blue-600 transition-all shadow-sm" data-filter="all">All</button>
+                        <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="systems-security">Security & Systems</button>
+                        <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="web-apps">Web Apps</button>
+                        <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="data-science">Data Science</button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    
+                    <!-- Project 1: SafeGate -->
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="systems-security" data-project-id="safegate">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#004b8c] to-blue-400 opacity-80 z-10"></div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fa-solid fa-shield-halved text-3xl text-[#004b8c] dark:text-blue-400"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">Security / Systems</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">SafeGate (Cloud Sandbox)</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
+                                A secure virtualization utility to analyze suspicious binaries. Built isolated containment environments using Docker to spin up dynamic, secure runtimes. Integrated ClamAV to automate local signature-based malware heuristics checks.
+                            </p>
+                            <span class="text-xs font-semibold text-[#004b8c] dark:text-blue-400 flex items-center gap-1.5 mt-auto group-hover:underline">
+                                Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
+                            <div class="flex flex-wrap gap-2 font-mono text-[10px] text-[#004b8c] dark:text-blue-400">
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Python</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Docker</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">ClamAV</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Postgres</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Kanban Board -->
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="web-apps" data-project-id="kanban">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-80 z-10"></div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fa-solid fa-table-columns text-3xl text-blue-500"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">Collaboration / UI</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">Northstar Kanban Board</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
+                                Collaborative agile workspace utilizing Supabase Realtime Channels for &lt;50ms state synchronization. Features a 6-second undo transaction buffer for optimistic UI updates and highly optimized rendering using React.memo.
+                            </p>
+                            <span class="text-xs font-semibold text-blue-500 dark:text-blue-400 flex items-center gap-1.5 mt-auto group-hover:underline">
+                                Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
+                            <div class="flex flex-wrap gap-2 font-mono text-[10px] text-blue-600 dark:text-blue-400">
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">React</span>
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">TS</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Supabase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AI Scanner -->
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="data-science" data-project-id="aiscanner">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 opacity-80 z-10"></div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fa-solid fa-file-contract text-3xl text-purple-600 dark:text-purple-400"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">NLP / AI Analytics</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">AI Contract Risk Scanner</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
+                                Automated parsing tool to translate complex legal contracts into simplified risk-weighted summaries. Implemented pattern-matching logic to flag high-risk clauses. Managed full-stack deployment on Render and GitHub Pages.
+                            </p>
+                            <span class="text-xs font-semibold text-purple-600 dark:text-purple-400 flex items-center gap-1.5 mt-auto group-hover:underline">
+                                Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
+                            <div class="flex flex-wrap gap-2 font-mono text-[10px] text-purple-600 dark:text-purple-400">
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Python</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">TS</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">NLP</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Render</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] theme-transition">
+            <div class="max-w-xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10 fade-in-up">
+                    <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-contact">Get In Touch</h2>
+                    <p class="text-sm text-slate-500 mt-3">Whether you want to talk systems architecture, data pipeline modeling, astrophysics, or job opportunities—my inbox is always open.</p>
+                </div>
+                
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border shadow-lg fade-in-up delay-100 relative">
+                    <!-- Form Submission Loading Indicator / Message -->
+                    <div id="contact-success" class="absolute inset-0 bg-white/95 dark:bg-[#131b2e]/95 rounded-3xl z-20 flex flex-col items-center justify-center p-6 text-center hidden transition-opacity duration-300 opacity-0">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-4 text-3xl animate-bounce">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">Message Sent!</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Thank you, Shreedhar will get back to you as soon as possible.</p>
+                        <button id="contact-reset-btn" class="px-5 py-2 text-xs font-semibold rounded-full bg-[#004b8c] dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-700 transition-colors">Send Another Message</button>
+                    </div>
+
+                    <form id="contact-form" class="space-y-5" novalidate>
+                        <input type="hidden" name="access_key" value="5ee00d96-1d55-41d6-b00e-3cbfd4fdb75f">
+                        <div>
+                            <label for="contact-name" class="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Full Name</label>
+                            <div class="relative">
+                                <input type="text" id="contact-name" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:border-transparent transition-all text-sm" placeholder="John Doe">
+                                <span class="error-msg text-[10px] text-red-500 mt-1 hidden">Please enter your name</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="contact-email" class="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Email Address</label>
+                            <div class="relative">
+                                <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:border-transparent transition-all text-sm" placeholder="john@example.com">
+                                <span class="error-msg text-[10px] text-red-500 mt-1 hidden">Please enter a valid email address</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="contact-subject" class="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Subject</label>
+                            <div class="relative">
+                                <input type="text" id="contact-subject" name="subject" required class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:border-transparent transition-all text-sm" placeholder="Inquiry about your works">
+                                <span class="error-msg text-[10px] text-red-500 mt-1 hidden">Please enter a subject</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Message</label>
+                            <div class="relative">
+                                <textarea id="contact-message" name="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/60 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 focus:border-transparent transition-all text-sm" placeholder="Hi Shreedhar, I'd like to talk about..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="contact-submit" class="w-full py-3 sm:py-3.5 rounded-xl bg-[#004b8c] dark:bg-blue-600 text-white font-medium hover:bg-blue-800 dark:hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 text-center theme-transition">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col items-center">
+            <div class="flex space-x-6 mb-5">
+                <a href="https://github.com/Dynamo-SJoshi" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub"><i class="fa-brands fa-github text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/shreedhar-s-joshi" target="_blank" class="hover:text-white transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                <a href="mailto:shreedharjoshi1@gmail.com" class="hover:text-white transition-colors" aria-label="Email"><i class="fa-solid fa-envelope text-xl"></i></a>
+            </div>
+            <p class="text-sm font-mono text-slate-500">Designed & Built by Shreedhar S. Joshi</p>
+            <p class="text-xs mt-2 text-slate-600">&copy; 2026 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Case Study Details Modal Markup -->
+    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm hidden transition-opacity duration-300 opacity-0" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="relative w-full max-w-2xl bg-white dark:bg-[#131b2e] rounded-3xl border border-slate-200/50 dark:border-slate-800/40 overflow-hidden shadow-2xl flex flex-col max-h-[85vh] transition-transform duration-300 scale-95" id="modal-container">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800/50 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/30">
+                <div class="flex items-center gap-3">
+                    <div id="modal-icon" class="text-2xl"></div>
+                    <h3 id="modal-title" class="text-lg font-bold text-slate-800 dark:text-white"></h3>
+                </div>
+                <button id="modal-close" class="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-full transition-colors focus:outline-none" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Content -->
+            <div class="p-6 space-y-5 overflow-y-auto flex-grow text-sm sm:text-base leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Overview</h4>
+                    <p id="modal-desc" class="text-slate-600 dark:text-slate-400"></p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Technical Architecture</h4>
+                    <p id="modal-architecture" class="text-slate-600 dark:text-slate-400"></p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Core Tech Stack</h4>
+                    <div id="modal-tech" class="flex flex-wrap gap-2 pt-1"></div>
+                </div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 border-t border-slate-100 dark:border-slate-800/50 bg-slate-50/50 dark:bg-slate-900/30 flex justify-end gap-3">
+                <a id="modal-github" href="#" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 text-white font-medium hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 transition-colors shadow-sm">
+                    <i class="fa-brands fa-github text-lg"></i> View Source
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Portfolio Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup Typing Subtitle
+            const phrases = [
+                "ECE & Data Science Student.",
+                "B.Tech in ECE @ IIIT Surat.",
+                "BS in Data Science @ IIT Madras.",
+                "ASTRA Space Sciences Club Coordinator."
+            ];
+            let phraseIdx = 0;
+            let charIdx = 0;
+            let currentPhrase = "";
+            let isDeleting = false;
+            const typingSpeed = 70;
+            const erasingSpeed = 40;
+            const typingSubElement = document.getElementById('typing-sub');
+
+            function typePhrase() {
+                if (phraseIdx >= phrases.length) {
+                    phraseIdx = 0;
+                }
+                const target = phrases[phraseIdx];
+                if (isDeleting) {
+                    currentPhrase = target.substring(0, charIdx - 1);
+                    charIdx--;
+                } else {
+                    currentPhrase = target.substring(0, charIdx + 1);
+                    charIdx++;
+                }
+                
+                typingSubElement.textContent = currentPhrase;
+
+                if (!isDeleting && currentPhrase === target) {
+                    isDeleting = true;
+                    setTimeout(typePhrase, 2200); // Wait before erasing
+                } else if (isDeleting && currentPhrase === "") {
+                    isDeleting = false;
+                    phraseIdx++;
+                    setTimeout(typePhrase, 500); // Wait before typing next
+                } else {
+                    setTimeout(typePhrase, isDeleting ? erasingSpeed : typingSpeed);
+                }
+            }
+            typePhrase();
+
+            // Light/Dark Theme Setup
+            const themeToggleBtns = [
+                document.getElementById('theme-toggle'),
+                document.getElementById('theme-toggle-mobile')
+            ];
+            
+            function toggleTheme() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+
+            // Check stored preferences or system settings
+            if (localStorage.getItem('theme') === 'dark' || 
+                (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            themeToggleBtns.forEach(btn => {
+                if(btn) btn.addEventListener('click', toggleTheme);
+            });
+
+            // Mobile Navigation Toggle
+            const mobileBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.replace('fa-xmark', 'fa-bars');
+                } else {
+                    icon.classList.replace('fa-bars', 'fa-xmark');
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+                });
+            });
+
+            // Navbar Resize & Scroll Shadow
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    navbar.classList.add('shadow-md', 'py-2');
+                    navbar.classList.remove('py-4');
+                } else {
+                    navbar.classList.remove('shadow-md', 'py-2');
+                    navbar.classList.add('py-4');
+                }
+            });
+
+            // Scroll animations using IntersectionObserver
+            const scrollElements = document.querySelectorAll('.fade-in-up');
+            const elementObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            scrollElements.forEach(elem => elementObserver.observe(elem));
+
+            // Dynamic Projects Filtration
+            const filterBtns = document.querySelectorAll('#project-filters button');
+            const projectCards = document.querySelectorAll('#projects-grid .project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button classes
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-[#004b8c]', 'dark:bg-blue-600', 'text-white');
+                        b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                    });
+                    
+                    btn.classList.add('active', 'bg-[#004b8c]', 'dark:bg-blue-600', 'text-white');
+                    btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                    
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filterValue === 'all' || category === filterValue) {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Case Study Details Modal Data
+            const projectsData = {
+                safegate: {
+                    title: "SafeGate (Cloud Sandbox)",
+                    icon: '<i class="fa-solid fa-shield-halved text-2xl text-[#004b8c] dark:text-blue-400"></i>',
+                    desc: "SafeGate is a lightweight cloud sandbox utility designed to facilitate safe evaluation of suspicious binaries in an isolated environment. It spins up containment structures using customized Docker environments on demand, preventing the possibility of host OS infection. It integrates ClamAV signatures locally to process fast heuristics scans prior to execution.",
+                    architecture: "Container containment backend implemented in Python using the official Docker SDK. Real-time logging outputs analysis logs directly to a secure local PostgreSQL database. The task scheduler manages dispatch pipelines for parallel scans without clogging system resources.",
+                    techStack: ["Python", "Docker Engine", "ClamAV daemon", "PostgreSQL", "Bash automation"],
+                    github: "https://github.com/Dynamo-SJoshi/SafeGate"
+                },
+                kanban: {
+                    title: "Northstar Kanban Board",
+                    icon: '<i class="fa-solid fa-table-columns text-2xl text-blue-500"></i>',
+                    desc: "Northstar Kanban Board is a highly optimized agile task workspace. Utilizing Supabase Realtime Channels, task transactions and boards synchronization operate with sub-50ms latency. The client state utilizes an optimistic update pattern with a built-in 6-second transactions buffer, allowing users to instantly roll back accidental movements.",
+                    architecture: "Single Page Application (SPA) designed with React, TypeScript, and styled with Tailwind CSS. Incorporates drag-and-drop structures supporting screen-reader access and keyboard navigation. State updates are verified through memoized selectors and React.memo components to minimize rendering footprint.",
+                    techStack: ["React.js", "TypeScript", "Supabase DB", "Tailwind CSS"],
+                    github: "https://github.com/Dynamo-SJoshi/kanban_board"
+                },
+                aiscanner: {
+                    title: "AI Contract Risk Scanner",
+                    icon: '<i class="fa-solid fa-file-contract text-2xl text-purple-600 dark:text-purple-400"></i>',
+                    desc: "The AI Contract Risk Scanner is an automation utility designed to process legal contracts, parsing complex terms into transparent risk-weighted summaries. It leverages custom NLP scripts to match high-liability clauses and auto-renewal commitments, rating contracts on a numerical threat scale.",
+                    architecture: "A Python pipeline running a lightweight NLP layer processes raw PDF document text. A client-side application written in TypeScript receives the parsed layout metrics and presents them in an interactive dashboard. Server-side processing runs on Render while static pages are hosted via GitHub Pages.",
+                    techStack: ["Python", "TypeScript", "NLTK/spaCy", "Render", "GitHub Pages"],
+                    github: "https://github.com/Dynamo-SJoshi/AI-Risk-Scanner"
+                }
+            };
+
+            // Modal Trigger Event Handlers
+            const modal = document.getElementById('project-modal');
+            const modalContainer = document.getElementById('modal-container');
+            const modalCloseBtn = document.getElementById('modal-close');
+
+            function openModal(projectId) {
+                const data = projectsData[projectId];
+                if (!data) return;
+                
+                document.getElementById('modal-title').textContent = data.title;
+                document.getElementById('modal-icon').innerHTML = data.icon;
+                document.getElementById('modal-desc').textContent = data.desc;
+                document.getElementById('modal-architecture').textContent = data.architecture;
+                
+                const techContainer = document.getElementById('modal-tech');
+                techContainer.innerHTML = '';
+                data.techStack.forEach(tech => {
+                    const badge = document.createElement('span');
+                    badge.className = 'text-xs font-mono font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2.5 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-800/50';
+                    badge.textContent = tech;
+                    techContainer.appendChild(badge);
+                });
+                
+                document.getElementById('modal-github').href = data.github;
+                
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalContainer.classList.remove('scale-95');
+                }, 50);
+                
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.add('opacity-0');
+                modalContainer.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = '';
+            }
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-project-id');
+                    openModal(projectId);
+                });
+            });
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            
+            // Close modal when clicking outside container
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Close modal on Escape key press
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+            // Contact Form Actions
+            const contactForm = document.getElementById('contact-form');
+            const successOverlay = document.getElementById('contact-success');
+            const resetBtn = document.getElementById('contact-reset-btn');
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            function showInputError(input, display) {
+                const container = input.closest('div');
+                const errorMsg = container.querySelector('.error-msg');
+                if (display) {
+                    input.classList.add('border-red-500', 'focus:ring-red-500');
+                    input.classList.remove('focus:ring-blue-500', 'dark:focus:ring-blue-600');
+                    errorMsg.classList.remove('hidden');
+                } else {
+                    input.classList.remove('border-red-500', 'focus:ring-red-500');
+                    input.classList.add('focus:ring-blue-500', 'dark:focus:ring-blue-600');
+                    errorMsg.classList.add('hidden');
+                }
+            }
+
+            // Input Event Listeners for real-time validation clearing
+            const formInputs = contactForm.querySelectorAll('input, textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.id === 'contact-email') {
+                        if (validateEmail(input.value)) {
+                            showInputError(input, false);
+                        }
+                    } else if (input.value.trim() !== '') {
+                        showInputError(input, false);
+                    }
+                });
+            });
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                formInputs.forEach(input => {
+                    // Skip access_key hidden field when validating text inputs
+                    if (input.name === 'access_key') return;
+                    // Skip message field validation checks (optional field)
+                    if (input.name === 'message') return;
+
+                    if (input.value.trim() === '') {
+                        showInputError(input, true);
+                        isValid = false;
+                    } else if (input.id === 'contact-email' && !validateEmail(input.value)) {
+                        showInputError(input, true);
+                        isValid = false;
+                    } else {
+                        showInputError(input, false);
+                    }
+                });
+
+                if (isValid) {
+                    const submitBtn = document.getElementById('contact-submit');
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Sending...';
+
+                    const formData = new FormData(contactForm);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let res = await response.json();
+                        if (response.status === 200) {
+                            // Display success animation
+                            successOverlay.classList.remove('hidden');
+                            setTimeout(() => {
+                                successOverlay.classList.remove('opacity-0');
+                            }, 50);
+                            contactForm.reset();
+                        } else {
+                            alert(res.message || "Something went wrong. Please try again.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert("Network error. Please check your connection and try again.");
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                    });
+                }
+            });
+
+            resetBtn.addEventListener('click', () => {
+                successOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    successOverlay.classList.add('hidden');
+                }, 300);
+            });
+
+            // Codeforces API Submission Heatmap
+            const cfHandle = 'sj01_codeForces';
+            const cfGrid = document.getElementById('cf-grid');
+            const cfLoading = document.getElementById('cf-loading');
+
+            async function fetchCodeforcesActivity() {
+                try {
+                    // Fetch profile info (rating, rank)
+                    const infoResponse = await fetch(`https://codeforces.com/api/user.info?handles=${cfHandle}`);
+                    const infoData = await infoResponse.json();
+                    
+                    if (infoData.status === 'OK') {
+                        const user = infoData.result[0];
+                        document.getElementById('cf-rating').textContent = user.rating || 'Unrated';
+                        document.getElementById('cf-max-rating').textContent = `Max: ${user.maxRating || '-'}`;
+                        
+                        const rankEl = document.getElementById('cf-rank');
+                        rankEl.textContent = user.rank || 'Newbie';
+                        rankEl.className = `block text-xs font-bold uppercase mt-1 ${getRankColorClass(user.rating)}`;
+                    }
+
+                    // Fetch submissions (verdict OK for problems count)
+                    const response = await fetch(`https://codeforces.com/api/user.status?handle=${cfHandle}`);
+                    const data = await response.json();
+                    
+                    const submissionMap = {};
+                    const solvedProblems = new Set();
+                    if (data.status === 'OK') {
+                        data.result.forEach(sub => {
+                            const date = new Date(sub.creationTimeSeconds * 1000);
+                            const dateString = date.toISOString().split('T')[0];
+                            submissionMap[dateString] = (submissionMap[dateString] || 0) + 1;
+
+                            if (sub.verdict === 'OK') {
+                                const problemId = `${sub.problem.contestId}-${sub.problem.index}`;
+                                solvedProblems.add(problemId);
+                            }
+                        });
+                        document.getElementById('cf-solved').textContent = solvedProblems.size;
+                    }
+                    renderCfGrid(submissionMap);
+                } catch (error) {
+                    console.error("Codeforces API fetch error:", error);
+                    renderCfGrid({});
+                } finally {
+                    if (cfLoading) {
+                        cfLoading.classList.add('opacity-0');
+                        setTimeout(() => cfLoading.classList.add('hidden'), 300);
+                    }
+                }
+            }
+
+            function getRankColorClass(rating) {
+                if (!rating) return 'text-slate-400 dark:text-slate-500';
+                if (rating < 1200) return 'text-slate-400 dark:text-slate-500';
+                if (rating < 1400) return 'text-green-500 dark:text-green-400';
+                if (rating < 1600) return 'text-cyan-500 dark:text-cyan-400';
+                if (rating < 1900) return 'text-blue-500 dark:text-blue-400';
+                return 'text-purple-500 dark:text-purple-400';
+            }
+
+            function renderCfGrid(submissionMap) {
+                if (!cfGrid) return;
+                cfGrid.innerHTML = '';
+
+                const numWeeks = 18; // Render 18 weeks of submissions
+                const totalDays = numWeeks * 7;
+                
+                const today = new Date();
+                const startDay = new Date(today);
+                startDay.setDate(today.getDate() - totalDays + (6 - today.getDay()));
+
+                for (let week = 0; week < numWeeks; week++) {
+                    const col = document.createElement('div');
+                    col.className = 'grid grid-rows-7 gap-[3px]';
+
+                    for (let day = 0; day < 7; day++) {
+                        const cellDate = new Date(startDay);
+                        cellDate.setDate(startDay.getDate() + (week * 7) + day);
+                        
+                        if (cellDate > today) {
+                            const cell = document.createElement('div');
+                            cell.className = 'w-[10px] h-[10px] rounded-[1.5px] bg-transparent';
+                            col.appendChild(cell);
+                            continue;
+                        }
+
+                        const dateStr = cellDate.toISOString().split('T')[0];
+                        const count = submissionMap[dateStr] || 0;
+
+                        const cell = document.createElement('div');
+                        cell.className = 'w-[10px] h-[10px] rounded-[1.5px] transition-colors duration-300 relative hover:scale-110 cursor-pointer';
+                        
+                        if (count === 0) {
+                            cell.classList.add('bg-slate-200', 'dark:bg-slate-800');
+                        } else if (count <= 2) {
+                            cell.classList.add('bg-blue-200', 'dark:bg-white/20');
+                        } else if (count <= 4) {
+                            cell.classList.add('bg-blue-400', 'dark:bg-white/60');
+                        } else {
+                            cell.classList.add('bg-blue-600', 'dark:bg-white');
+                        }
+
+                        const dateFormatted = cellDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+                        cell.title = `${count} submission${count !== 1 ? 's' : ''} on ${dateFormatted}`;
+
+                        col.appendChild(cell);
+                    }
+                    cfGrid.appendChild(col);
+                }
+            }
+
+            fetchCodeforcesActivity();
+
+            // Fetch and customize GitHub SVG chart inline to manually format text labels
+            const ghChartContainer = document.getElementById('gh-chart-container');
+            const ghChartFallback = document.getElementById('gh-chart-fallback');
+            const ghUsername = 'Dynamo-SJoshi';
+            const ghChartColor = '3b82f6'; // custom accent color
+
+            async function loadGitHubChart() {
+                try {
+                    const targetUrl = `https://ghchart.rshah.org/${ghChartColor}/${ghUsername}`;
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+                    
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 4000); // 4 second timeout
+                    
+                    const response = await fetch(proxyUrl, { signal: controller.signal });
+                    clearTimeout(timeoutId);
+                    
+                    const data = await response.json();
+                    if (data.contents) {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(data.contents, 'image/svg+xml');
+                        const svgElement = doc.querySelector('svg');
+                        
+                        if (svgElement) {
+                            svgElement.setAttribute('class', 'w-full h-auto min-w-[600px]');
+                            
+                            // Map inline colors to stylesheet variables for dynamic dark mode
+                            const rects = svgElement.querySelectorAll('rect');
+                            rects.forEach(rect => {
+                                const score = parseInt(rect.getAttribute('data-score') || '0', 10);
+                                if (score === 0) {
+                                    rect.style.setProperty('fill', 'var(--gh-color-0)', 'important');
+                                } else if (score <= 2) {
+                                    rect.style.setProperty('fill', 'var(--gh-color-1)', 'important');
+                                } else if (score <= 5) {
+                                    rect.style.setProperty('fill', 'var(--gh-color-2)', 'important');
+                                } else if (score <= 8) {
+                                    rect.style.setProperty('fill', 'var(--gh-color-3)', 'important');
+                                } else {
+                                    rect.style.setProperty('fill', 'var(--gh-color-4)', 'important');
+                                }
+                            });
+
+                            ghChartContainer.innerHTML = '';
+                            ghChartContainer.appendChild(svgElement);
+                            return; // Success
+                        }
+                    }
+                } catch (err) {
+                    console.warn("Failed to inline GitHub chart, using fallback img:", err);
+                }
+                
+                if (ghChartFallback) {
+                    ghChartFallback.classList.remove('hidden');
+                }
+            }
+
+            loadGitHubChart();
+        });
+    </script>
+</body>
+</html>
