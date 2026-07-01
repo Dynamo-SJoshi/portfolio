@@ -167,6 +167,51 @@
             border-radius: 9999px;
         }
 
+        /* Dijkstra Pathfinder Grid Animations */
+        @keyframes wave {
+            0% {
+                transform: scale(0.3);
+                background-color: rgba(34, 211, 238, 0.4); /* Cyan 400 */
+                border-radius: 100%;
+                box-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+            }
+            50% {
+                background-color: rgba(34, 211, 238, 0.7);
+                box-shadow: 0 0 16px rgba(34, 211, 238, 0.9);
+            }
+            100% {
+                transform: scale(1);
+                background-color: #22d3ee; /* Solid Cyan */
+                box-shadow: 0 0 4px rgba(34, 211, 238, 0.4);
+            }
+        }
+        .node-evaluated {
+            animation: wave 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            border-color: transparent !important;
+        }
+        
+        @keyframes shortest-path {
+            0% {
+                transform: scale(0.6);
+                background-color: #fef08a; /* Yellow 200 */
+            }
+            50% {
+                transform: scale(1.1);
+                background-color: #fde047; /* Yellow 300 */
+                box-shadow: 0 0 16px #facc15;
+            }
+            100% {
+                transform: scale(1);
+                background-color: #facc15; /* Neon Yellow 400 */
+                box-shadow: 0 0 8px #facc15;
+            }
+        }
+        .node-path {
+            animation: shortest-path 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            border-color: transparent !important;
+            z-index: 10;
+        }
+
         .project-card {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                         box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -295,7 +340,9 @@
                     <div class="hidden md:flex space-x-8 items-center">
                         <a href="#about" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">About</a>
                         <a href="#skills" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Skills</a>
+                        <a href="#pathfinder" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Pathfinder</a>
                         <a href="#experience" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Experience</a>
+                        <a href="#awards" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Honors & Awards</a>
                         <a href="#projects" class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-[#004b8c] dark:hover:text-blue-400 transition-colors">Projects</a>
                         
                         <!-- Dark Mode Toggle -->
@@ -328,7 +375,9 @@
                 <div class="px-4 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col items-center">
                     <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">About</a>
                     <a href="#skills" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Skills</a>
+                    <a href="#pathfinder" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Pathfinder</a>
                     <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Experience</a>
+                    <a href="#awards" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Honors & Awards</a>
                     <a href="#projects" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Projects</a>
                     <a href="cv.pdf" download="Shreedhar_Joshi_CV.pdf" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-[#004b8c] dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center">Resume</a>
                     <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium text-[#004b8c] dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800/30 w-full text-center font-bold">Contact</a>
@@ -467,7 +516,7 @@
                                 <div class="relative z-10">
                                     <div class="flex justify-between items-start mb-2">
                                         <h3 class="text-lg font-bold text-slate-800 dark:text-white">IIIT, Surat</h3>
-                                        <span class="text-xs font-mono bg-[#004b8c]/10 text-[#004b8c] dark:bg-blue-500/10 dark:text-blue-400 px-2 py-1 rounded">2025 - 2029</span>
+                                        <span class="text-xs font-mono bg-[#004b8c]/10 text-[#004b8c] dark:bg-blue-500/10 dark:text-blue-400 px-2 py-1 rounded">2025 - Present</span>
                                     </div>
                                     <p class="text-sm font-semibold text-[#004b8c] dark:text-blue-400 mb-3">B.Tech - Electronics & Communication Engineering</p>
                                     <p class="text-sm text-slate-600 dark:text-slate-400 mb-2">
@@ -487,7 +536,7 @@
                                 <div class="relative z-10">
                                     <div class="flex justify-between items-start mb-2">
                                         <h3 class="text-lg font-bold text-slate-800 dark:text-white">IIT, Madras</h3>
-                                        <span class="text-xs font-mono bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400 px-2 py-1 rounded">Jul 2025 - Present</span>
+                                        <span class="text-xs font-mono bg-blue-500/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-400 px-2 py-1 rounded">2025 - Present</span>
                                     </div>
                                     <p class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">BS - Data Science and Applications (Concurrent)</p>
                                     <div class="flex flex-wrap gap-2 mt-3">
@@ -635,8 +684,91 @@
             </div>
         </section>
 
+        <!-- Dijkstra Pathfinder Section -->
+        <section id="pathfinder" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+                    <div>
+                        <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-pathfinder">WASM Dijkstra Pathfinder</h2>
+                        <p class="text-sm text-slate-500 mt-2">Dijkstra's shortest path algorithm compiled from C to WebAssembly, running directly inside the browser.</p>
+                    </div>
+                    <!-- Mode Controls -->
+                    <div class="flex flex-wrap gap-2.5">
+                        <button id="mode-blockade" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-white dark:bg-slate-700 hover:opacity-90 shadow-sm transition-all" onclick="setMode('blockade')">
+                            <i class="fa-solid fa-square text-slate-400 mr-1.5"></i> Draw Walls
+                        </button>
+                        <button id="mode-start" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/60 shadow-sm transition-all" onclick="setMode('start')">
+                            <i class="fa-solid fa-flag text-green-500 mr-1.5"></i> Move Start
+                        </button>
+                        <button id="mode-end" class="px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/60 shadow-sm transition-all" onclick="setMode('end')">
+                            <i class="fa-solid fa-bullseye text-red-500 mr-1.5"></i> Move Target
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
+                    
+                    <!-- WebAssembly Loading / Instructions Overlay -->
+                    <div id="pathfinder-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/95 dark:bg-[#0c1222]/95 z-20 transition-opacity duration-300 p-6 text-center">
+                        <div id="pathfinder-loader-text" class="flex flex-col items-center max-w-md">
+                            <div class="w-12 h-12 rounded-full border-4 border-[#004b8c] border-t-transparent dark:border-blue-500 dark:border-t-transparent animate-spin mb-4"></div>
+                            <span class="text-sm font-semibold text-slate-600 dark:text-slate-400">Loading WebAssembly module...</span>
+                        </div>
+                    </div>
+
+                    <!-- Visualizer Container -->
+                    <div id="pathfinder-visualizer" class="hidden w-full flex flex-col items-center">
+                        <!-- Stats Bar -->
+                        <div class="w-full flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 pb-4 border-b border-slate-200/50 dark:border-slate-800/40 text-sm">
+                            <div class="flex items-center gap-6 flex-wrap">
+                                <span class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Start Node
+                                </span>
+                                <span class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Target Node
+                                </span>
+                                <span class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                                    <span class="w-2.5 h-2.5 rounded bg-slate-700 dark:bg-slate-800"></span> Wall Blockade
+                                </span>
+                                <span class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                                    <span class="w-2.5 h-2.5 rounded bg-cyan-400 animate-pulse"></span> Search Wave
+                                </span>
+                                <span class="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                                    <span class="w-2.5 h-2.5 rounded bg-yellow-400 animate-pulse"></span> Shortest Path
+                                </span>
+                            </div>
+                            <div id="pathfinder-status" class="text-xs font-mono font-bold text-[#004b8c] dark:text-blue-400">
+                                Ready to visualize
+                            </div>
+                        </div>
+
+                        <!-- Grid -->
+                        <div class="overflow-x-auto w-full flex justify-center py-2">
+                            <div id="grid-container" class="grid gap-[2px] p-2 bg-slate-200/50 dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800/40 select-none cursor-crosshair" style="grid-template-columns: repeat(20, minmax(24px, 1fr));">
+                                <!-- Cells generated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Action Controls -->
+                        <div class="flex gap-4 mt-6">
+                            <button id="btn-visualize" class="px-6 py-2.5 text-xs font-bold rounded-xl bg-[#004b8c] dark:bg-blue-600 text-white hover:bg-blue-800 dark:hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex items-center gap-1.5" onclick="visualize()">
+                                <i class="fa-solid fa-play"></i> Visualize Pathfinder
+                            </button>
+                            <button class="px-4 py-2.5 text-xs font-semibold rounded-xl bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/60 border border-slate-200 dark:border-slate-700 transition-colors" onclick="clearPath()">
+                                Clear Path
+                            </button>
+                            <button class="px-4 py-2.5 text-xs font-semibold rounded-xl bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/60 border border-slate-200 dark:border-slate-700 transition-colors" onclick="clearAll()">
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Experience & Leadership -->
-        <section id="experience" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] theme-transition">
+        <section id="experience" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] theme-transition">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="section-heading fade-in-up text-center block mx-auto text-3xl font-bold text-slate-800 dark:text-white" id="heading-experience">Experience & Leadership</h2>
                 
@@ -668,7 +800,7 @@
         </section>
 
         <!-- Honors & Awards -->
-        <section id="awards" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
+        <section id="awards" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="section-heading fade-in-up text-center block mx-auto text-3xl font-bold text-slate-800 dark:text-white" id="heading-awards">Honors & Awards</h2>
                 
@@ -695,7 +827,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
+        <section id="projects" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -797,7 +929,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] theme-transition">
+        <section id="contact" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] theme-transition">
             <div class="max-w-xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10 fade-in-up">
                     <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-contact">Get In Touch</h2>
@@ -1440,6 +1572,226 @@
             }
 
             loadGitHubChart();
+
+            // Dijkstra Pathfinder WASM Integration
+            let wasmInstance = null;
+            const gridWidth = 20;
+            const gridHeight = 15;
+            const totalNodes = gridWidth * gridHeight;
+
+            let grid = new Array(totalNodes).fill(0);
+            let startNode = 4 * gridWidth + 3; // Initial position (Row 4, Col 3)
+            let endNode = 10 * gridWidth + 16;  // Initial target (Row 10, Col 16)
+            let currentMode = 'blockade'; // 'blockade', 'start', 'end'
+            let isDrawing = false;
+            let isRunning = false;
+
+            const gridOffset = 4000;
+            const pathOffset = 6000;
+            const evalOffset = 8000;
+            const countOffset = 10000;
+
+            async function initWasm() {
+                try {
+                    const response = await fetch('dijkstra.wasm');
+                    if (!response.ok) throw new Error("WASM file not found");
+                    const bytes = await response.arrayBuffer();
+                    const wasmObj = await WebAssembly.instantiate(bytes, {});
+                    wasmInstance = wasmObj.instance;
+
+                    document.getElementById('pathfinder-loader').classList.add('hidden');
+                    document.getElementById('pathfinder-visualizer').classList.remove('hidden');
+                    window.renderGrid();
+                } catch (err) {
+                    console.warn("Failed to load dijkstra.wasm:", err);
+                    document.getElementById('pathfinder-loader-text').innerHTML =
+                        '<span class="text-yellow-500 font-bold text-lg"><i class="fa-solid fa-circle-exclamation text-xl mb-2"></i> compilation required</span><br>' +
+                        '<span class="text-xs text-slate-400 mt-2 block max-w-sm leading-relaxed">' +
+                        'Please compile your updated <strong>dijkstra.c</strong> to <strong>dijkstra.wasm</strong> using an online compiler (like WasmExplorer) and place the file in the project folder to activate the grid.</span>';
+                }
+            }
+
+            window.renderGrid = function() {
+                const gridContainer = document.getElementById('grid-container');
+                if (!gridContainer) return;
+                gridContainer.innerHTML = '';
+
+                for (let i = 0; i < totalNodes; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'w-6 h-6 sm:w-7 sm:h-7 bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/40 transition-all duration-200 flex items-center justify-center text-xs';
+                    cell.dataset.index = i;
+
+                    if (i === startNode) {
+                        cell.classList.add('bg-green-500', 'text-white', 'node-start');
+                        cell.innerHTML = '<i class="fa-solid fa-flag text-[10px]"></i>';
+                    } else if (i === endNode) {
+                        cell.classList.add('bg-red-500', 'text-white', 'node-end');
+                        cell.innerHTML = '<i class="fa-solid fa-bullseye text-[10px]"></i>';
+                    } else if (grid[i] === 1) {
+                        cell.classList.add('bg-slate-700', 'dark:bg-slate-800', 'border-transparent');
+                    }
+
+                    cell.addEventListener('mousedown', (e) => handleMouseDown(e, i));
+                    cell.addEventListener('mouseenter', () => handleMouseEnter(i));
+                    cell.addEventListener('mouseup', handleMouseUp);
+
+                    gridContainer.appendChild(cell);
+                }
+            };
+
+            function handleMouseDown(e, index) {
+                if (isRunning) return;
+                isDrawing = true;
+
+                if (currentMode === 'start') {
+                    if (index !== endNode && grid[index] === 0) {
+                        startNode = index;
+                        window.renderGrid();
+                    }
+                    isDrawing = false;
+                } else if (currentMode === 'end') {
+                    if (index !== startNode && grid[index] === 0) {
+                        endNode = index;
+                        window.renderGrid();
+                    }
+                    isDrawing = false;
+                } else {
+                    if (index !== startNode && index !== endNode) {
+                        grid[index] = grid[index] === 1 ? 0 : 1;
+                        window.renderGrid();
+                    }
+                }
+            }
+
+            function handleMouseEnter(index) {
+                if (!isDrawing || isRunning || currentMode !== 'blockade') return;
+                if (index !== startNode && index !== endNode) {
+                    grid[index] = 1;
+                    window.renderGrid();
+                }
+            }
+
+            function handleMouseUp() {
+                isDrawing = false;
+            }
+
+            document.addEventListener('mouseup', () => { isDrawing = false; });
+
+            window.setMode = function(mode) {
+                if (isRunning) return;
+                currentMode = mode;
+
+                ['mode-blockade', 'mode-start', 'mode-end'].forEach(id => {
+                    const btn = document.getElementById(id);
+                    if (btn) {
+                        btn.classList.remove('bg-slate-800', 'text-white', 'dark:bg-slate-700');
+                        btn.classList.add('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+                    }
+                });
+
+                const activeBtn = document.getElementById(`mode-${mode}`);
+                if (activeBtn) {
+                    activeBtn.classList.remove('bg-slate-100', 'text-slate-700', 'dark:bg-slate-800', 'dark:text-slate-300');
+                    activeBtn.classList.add('bg-slate-800', 'text-white', 'dark:bg-slate-700');
+                }
+            };
+
+            window.clearPath = function() {
+                if (isRunning) return;
+                const cells = document.querySelectorAll('#grid-container > div');
+                cells.forEach((cell, i) => {
+                    if (i !== startNode && i !== endNode && grid[i] === 0) {
+                        cell.className = 'w-6 h-6 sm:w-7 sm:h-7 bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/40 transition-all duration-200 flex items-center justify-center text-xs';
+                    }
+                });
+                document.getElementById('pathfinder-status').textContent = 'Ready to visualize';
+                document.getElementById('pathfinder-status').className = 'text-xs font-mono font-bold text-blue-600 dark:text-blue-400';
+            };
+
+            window.clearAll = function() {
+                if (isRunning) return;
+                grid = new Array(totalNodes).fill(0);
+                window.clearPath();
+                window.renderGrid();
+            };
+
+            window.visualize = function() {
+                if (!wasmInstance || isRunning) return;
+                window.clearPath();
+
+                isRunning = true;
+                document.getElementById('btn-visualize').disabled = true;
+                const statusEl = document.getElementById('pathfinder-status');
+                statusEl.textContent = 'Running Dijkstra...';
+                statusEl.className = 'text-xs font-mono font-bold text-yellow-500';
+
+                // Copy grid array data to WASM memory buffer
+                const memory = wasmInstance.exports.memory;
+                const gridView = new Int32Array(memory.buffer, gridOffset, totalNodes);
+                gridView.set(grid);
+
+                // Call C Dijkstra function
+                const pathLength = wasmInstance.exports.findShortestPath(
+                    gridWidth,
+                    gridHeight,
+                    gridOffset,
+                    startNode,
+                    endNode,
+                    pathOffset,
+                    evalOffset,
+                    countOffset
+                );
+
+                const evalCount = new Int32Array(memory.buffer, countOffset, 1)[0];
+                const evalList = new Int32Array(memory.buffer, evalOffset, evalCount);
+                const pathList = new Int32Array(memory.buffer, pathOffset, pathLength > 0 ? pathLength : 0);
+
+                // 1. Animate Evaluation Wavefront
+                let i = 0;
+                function animateWave() {
+                    if (i < evalCount) {
+                        const index = evalList[i];
+                        if (index !== startNode && index !== endNode) {
+                            const cell = document.querySelector(`#grid-container > div[data-index="${index}"]`);
+                            if (cell) cell.classList.add('node-evaluated');
+                        }
+                        i++;
+                        setTimeout(animateWave, 10); // 10ms wavefront speed
+                    } else {
+                        // 2. Animate Shortest Path
+                        if (pathLength > 0) {
+                            animatePath();
+                        } else {
+                            statusEl.textContent = 'Target is blocked! No path found.';
+                            statusEl.className = 'text-xs font-mono font-bold text-red-500';
+                            isRunning = false;
+                            document.getElementById('btn-visualize').disabled = false;
+                        }
+                    }
+                }
+
+                let p = 0;
+                function animatePath() {
+                    if (p < pathLength) {
+                        const index = pathList[p];
+                        if (index !== startNode && index !== endNode) {
+                            const cell = document.querySelector(`#grid-container > div[data-index="${index}"]`);
+                            if (cell) cell.classList.add('node-path');
+                        }
+                        p++;
+                        setTimeout(animatePath, 25); // 25ms path speed
+                    } else {
+                        statusEl.textContent = `Shortest Path Found: ${pathLength} nodes`;
+                        statusEl.className = 'text-xs font-mono font-bold text-green-500';
+                        isRunning = false;
+                        document.getElementById('btn-visualize').disabled = false;
+                    }
+                }
+
+                animateWave();
+            };
+
+            initWasm();
         });
     </script>
 </body>
