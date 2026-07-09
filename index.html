@@ -407,11 +407,14 @@
     <header>
         <nav class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-slate-200/50 dark:border-slate-800/40 shadow-sm py-4" id="navbar">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-10">
+                <div class="flex justify-between items-center h-14">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
-                        <a href="#" class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight font-mono hover:opacity-80 transition-opacity" id="nav-logo">
-                            SJ<span class="text-[#004b8c] dark:text-blue-400">.</span>
+                        <a href="#" class="hover:opacity-80 transition-opacity flex items-center" id="nav-logo">
+                            <!-- Light Mode Logo -->
+                            <img src="logo-light.png" alt="Shreedhar S. Joshi" class="h-12 w-auto dark:hidden">
+                            <!-- Dark Mode Logo -->
+                            <img src="logo-dark.png" alt="Shreedhar S. Joshi" class="h-12 w-auto hidden dark:block">
                         </a>
                     </div>
                     
