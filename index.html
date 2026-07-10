@@ -1441,8 +1441,72 @@
             </div>
         </section>
 
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] border-t border-slate-200/50 dark:border-slate-800/40 theme-transition">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-hobbies">Beyond the Code</h2>
+                    <p class="text-sm text-slate-500 mt-2">A glimpse into my creative pursuits, experiments, and hobbies.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 fade-in-up">
+                    <!-- Photography Card -->
+                    <div class="glass-card p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[260px]">
+                        <!-- Camera aperture/glow background effect -->
+                        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-blue-500/5 dark:bg-blue-400/5 rounded-full z-0 pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-sky-400 opacity-80 z-10"></div>
+                        
+                        <div class="relative z-10 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <i class="fa-solid fa-camera-retro text-3xl text-blue-500"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider font-bold">Visual Arts</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">Aperture & Perspectives</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    Capturing moments, angles, and lighting details in urban landscapes and nature. Freezing frames that tell stories through the lens.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative z-10 pt-6">
+                            <button id="explore-gallery-btn" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-slate-800 text-white text-xs font-semibold hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 transition-all shadow-sm hover:shadow-md">
+                                Explore Gallery <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- BandLab (SoundLab) Card -->
+                    <div class="glass-card p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[260px]">
+                        <!-- Soundwave/glow background effect -->
+                        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-purple-500/5 dark:bg-purple-400/5 rounded-full z-0 pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-500 to-pink-400 opacity-80 z-10"></div>
+                        
+                        <div class="relative z-10 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <i class="fa-solid fa-sliders text-3xl text-purple-500"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider font-bold">Audio Production</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">SoundLab</h3>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    Synthesizing digital beats, multi-track layering, and mastering audio creations. Mixing electronic melodies and experimental waveforms.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative z-10 pt-6">
+                            <a href="https://www.bandlab.com/dynamobytes" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-slate-800 text-white text-xs font-semibold hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 transition-all shadow-sm hover:shadow-md">
+                                Listen on BandLab <i class="fa-solid fa-headphones"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
-        <section id="contact" class="py-16 md:py-24 bg-slate-50 dark:bg-[#090d16] theme-transition">
+        <section id="contact" class="py-16 md:py-24 bg-white dark:bg-[#0c1222] theme-transition">
             <div class="max-w-xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10 fade-in-up">
                     <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-contact">Get In Touch</h2>
@@ -2578,6 +2642,212 @@
                 }
             };
 
+            // Viewfinder Photography Gallery Code
+            const exploreGalleryBtn = document.getElementById('explore-gallery-btn');
+            const galleryModal = document.getElementById('gallery-modal');
+            const closeGalleryBtn = document.getElementById('close-gallery-btn');
+            const galleryLoading = document.getElementById('gallery-loading');
+            const galleryGrid = document.getElementById('gallery-grid');
+            const galleryEmpty = document.getElementById('gallery-empty');
+            
+            const lightboxModal = document.getElementById('lightbox-modal');
+            const closeLightboxBtn = document.getElementById('close-lightbox-btn');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+            const lightboxNextBtn = document.getElementById('lightbox-next-btn');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            let galleryImages = []; // Array to store currently displayed image details
+            let currentLightboxIndex = 0;
+
+            if (exploreGalleryBtn) {
+                exploreGalleryBtn.addEventListener('click', () => {
+                    if (galleryModal) {
+                        galleryModal.classList.remove('hidden');
+                        // Trigger flow reflow
+                        galleryModal.offsetWidth;
+                        galleryModal.classList.remove('opacity-0');
+                        document.body.style.overflow = 'hidden'; // Lock main scroll
+                        loadGalleryImages();
+                    }
+                });
+            }
+
+            if (closeGalleryBtn) {
+                closeGalleryBtn.addEventListener('click', () => {
+                    if (galleryModal) {
+                        galleryModal.classList.add('opacity-0');
+                        setTimeout(() => {
+                            galleryModal.classList.add('hidden');
+                            document.body.style.overflow = ''; // Unlock main scroll
+                        }, 300);
+                    }
+                });
+            }
+
+            async function loadGalleryImages() {
+                galleryLoading.classList.remove('hidden');
+                galleryGrid.classList.add('hidden');
+                galleryEmpty.classList.add('hidden');
+                
+                try {
+                    // Query GitHub API to get directory contents of 'best pics'
+                    const repoUrl = `https://api.github.com/repos/Dynamo-SJoshi/portfolio/contents/best%20pics`;
+                    const res = await fetch(repoUrl);
+                    
+                    if (!res.ok) {
+                        throw new Error('Not found or API rate limit hit');
+                    }
+                    
+                    const files = await res.json();
+                    
+                    // Filter for common image extensions
+                    const imageExtensions = ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'];
+                    const images = files.filter(file => 
+                        file.type === 'file' && 
+                        imageExtensions.some(ext => file.name.toLowerCase().endsWith(ext))
+                    );
+                    
+                    if (images.length === 0) {
+                        showEmptyState();
+                    } else {
+                        renderGalleryGrid(images.map(img => ({
+                            name: img.name,
+                            url: img.download_url
+                        })));
+                    }
+                } catch (err) {
+                    console.warn("Could not load dynamic gallery from GitHub, showing fallback state:", err);
+                    showEmptyState();
+                }
+            }
+
+            function showEmptyState() {
+                galleryLoading.classList.add('hidden');
+                galleryGrid.classList.add('hidden');
+                galleryEmpty.classList.remove('hidden');
+            }
+
+            function renderGalleryGrid(images) {
+                galleryImages = images;
+                galleryGrid.innerHTML = '';
+                
+                images.forEach((img, index) => {
+                    const cardName = cleanImageName(img.name);
+                    const item = document.createElement('div');
+                    item.className = 'relative overflow-hidden rounded-2xl aspect-square bg-slate-900 group cursor-pointer border border-slate-700/50 hover:border-blue-400/50 transition-all duration-300 shadow-md';
+                    item.innerHTML = `
+                        <img src="${img.url}" alt="${cardName}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                            <span class="text-white font-bold text-sm truncate">${cardName}</span>
+                            <span class="text-blue-400 text-[10px] uppercase font-mono mt-0.5 tracking-wider">Open View</span>
+                        </div>
+                    `;
+                    
+                    item.addEventListener('click', () => {
+                        openLightbox(index);
+                    });
+                    
+                    galleryGrid.appendChild(item);
+                });
+                
+                galleryLoading.classList.add('hidden');
+                galleryGrid.classList.remove('hidden');
+                galleryGrid.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6';
+            }
+
+            function cleanImageName(filename) {
+                // Remove extension and replace dashes/underscores with spaces
+                const dotIdx = filename.lastIndexOf('.');
+                const baseName = dotIdx !== -1 ? filename.substring(0, dotIdx) : filename;
+                return baseName.replace(/[_-]/g, ' ');
+            }
+
+
+
+            // Lightbox Operations
+            function openLightbox(index) {
+                currentLightboxIndex = index;
+                updateLightboxImage();
+                
+                if (lightboxModal) {
+                    lightboxModal.classList.remove('hidden');
+                    // Force flow reflow
+                    lightboxModal.offsetWidth;
+                    lightboxModal.classList.remove('opacity-0');
+                }
+            }
+
+            function closeLightbox() {
+                if (lightboxModal) {
+                    lightboxModal.classList.add('opacity-0');
+                    setTimeout(() => {
+                        lightboxModal.classList.add('hidden');
+                    }, 300);
+                }
+            }
+
+            function updateLightboxImage() {
+                if (galleryImages.length === 0) return;
+                const img = galleryImages[currentLightboxIndex];
+                
+                if (lightboxImg) {
+                    lightboxImg.src = img.url;
+                    lightboxImg.alt = img.name;
+                }
+                
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = cleanImageName(img.name);
+                }
+                
+                if (lightboxCounter) {
+                    lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+                }
+            }
+
+            if (closeLightboxBtn) {
+                closeLightboxBtn.addEventListener('click', closeLightbox);
+            }
+
+            if (lightboxPrevBtn) {
+                lightboxPrevBtn.addEventListener('click', () => {
+                    if (galleryImages.length === 0) return;
+                    currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+                    updateLightboxImage();
+                });
+            }
+
+            if (lightboxNextBtn) {
+                lightboxNextBtn.addEventListener('click', () => {
+                    if (galleryImages.length === 0) return;
+                    currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+                    updateLightboxImage();
+                });
+            }
+
+            // Lightbox keyboard navigation & backdrop clicks
+            window.addEventListener('keydown', (e) => {
+                if (!lightboxModal || lightboxModal.classList.contains('hidden')) return;
+                
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    lightboxPrevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNextBtn.click();
+                }
+            });
+
+            if (lightboxModal) {
+                lightboxModal.addEventListener('click', (e) => {
+                    // Close only if click is directly on container
+                    if (e.target === lightboxModal || e.target.id === 'lightbox-img-wrap') {
+                        closeLightbox();
+                    }
+                });
+            }
+
             window.closePathfinderModal = function() {
                 if (isRunning) return;
                 const modal = document.getElementById('pathfinder-modal');
@@ -2592,5 +2862,79 @@
             };
         });
     </script>
+    <!-- Photography Gallery Modal Overlay -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden bg-[#090d16]/95 backdrop-blur-lg overflow-y-auto transition-opacity duration-300 opacity-0 flex flex-col">
+        <!-- Top bar -->
+        <div class="sticky top-0 w-full px-6 py-4 flex justify-between items-center bg-[#090d16]/80 backdrop-blur-md border-b border-slate-800/60 z-20">
+            <div>
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-camera-retro text-blue-400"></i> Aperture & Perspectives
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Through the Viewfinder Gallery</p>
+            </div>
+            
+            <button id="close-gallery-btn" class="w-10 h-10 rounded-full bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700/80 transition-all flex items-center justify-center border border-slate-700" aria-label="Close Gallery">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Main Scrollable Area -->
+        <div class="flex-grow max-w-6xl mx-auto w-full px-6 py-8">
+            <!-- Loading state -->
+            <div id="gallery-loading" class="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
+                <i class="fa-solid fa-spinner animate-spin text-3xl text-blue-400"></i>
+                <p class="text-sm font-medium">Scanning best pics/ folder...</p>
+            </div>
+            
+            <!-- Grid container -->
+            <div id="gallery-grid" class="hidden grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Dynamic image items go here -->
+            </div>
+            
+            <!-- Empty / Setup state -->
+            <div id="gallery-empty" class="hidden flex-col items-center justify-center py-20 text-center max-w-md mx-auto space-y-4">
+                <div class="w-16 h-16 rounded-full bg-slate-800/40 border border-slate-700/50 flex items-center justify-center text-slate-500 text-2xl">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-base font-bold text-white">Capturing Perspectives...</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Photos are syncing. Once new frames are committed to the <code class="bg-slate-800 px-1.5 py-0.5 rounded text-blue-400 font-mono text-[10px]">best pics</code> repository folder, they will dynamically compile here!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lightbox Modal for fullscreen image viewing -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[60] hidden bg-black/98 backdrop-blur-md flex flex-col justify-between p-4 transition-opacity duration-300 opacity-0 select-none">
+        <!-- Lightbox Top bar -->
+        <div class="w-full flex justify-between items-center text-white px-4 py-2">
+            <span id="lightbox-counter" class="text-xs font-mono text-slate-400">1 / 1</span>
+            <button id="close-lightbox-btn" class="w-9 h-9 rounded-full bg-slate-800/50 text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors flex items-center justify-center" aria-label="Close Lightbox">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <!-- Lightbox Center: Image and Nav -->
+        <div class="flex-grow flex items-center justify-between relative max-w-5xl mx-auto w-full px-4" id="lightbox-img-wrap">
+            <button id="lightbox-prev-btn" class="w-12 h-12 rounded-full bg-slate-800/40 hover:bg-slate-700/60 text-white transition-colors flex items-center justify-center absolute left-4 z-10" aria-label="Previous Image">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+            
+            <div class="w-full h-full flex items-center justify-center p-4">
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain" />
+            </div>
+            
+            <button id="lightbox-next-btn" class="w-12 h-12 rounded-full bg-slate-800/40 hover:bg-slate-700/60 text-white transition-colors flex items-center justify-center absolute right-4 z-10" aria-label="Next Image">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Lightbox Bottom bar -->
+        <div class="w-full text-center text-slate-400 text-xs py-4 font-semibold tracking-wide bg-gradient-to-t from-black/80 to-transparent" id="lightbox-caption">
+            Image Name
+        </div>
+    </div>
 </body>
 </html>
