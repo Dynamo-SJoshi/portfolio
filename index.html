@@ -1186,6 +1186,10 @@
             
             <!-- Modal Content -->
             <div class="p-6 space-y-5 overflow-y-auto flex-grow text-sm sm:text-base leading-relaxed">
+                <!-- Project Image Showcase -->
+                <div class="w-full rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800/40 bg-slate-50 dark:bg-slate-900/50 mb-4 shadow-sm flex items-center justify-center">
+                    <img id="modal-image" src="" alt="Project Screenshot" class="w-full h-auto object-contain max-h-[220px] sm:max-h-[280px]">
+                </div>
                 <div>
                     <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Overview</h4>
                     <p id="modal-desc" class="text-slate-600 dark:text-slate-400"></p>
@@ -1473,6 +1477,7 @@
                 safegate: {
                     title: "SafeGate (Cloud Sandbox)",
                     icon: '<i class="fa-solid fa-shield-halved text-2xl text-[#004b8c] dark:text-blue-400"></i>',
+                    image: "Safegate.png",
                     desc: "SafeGate is a lightweight cloud sandbox utility designed to facilitate safe evaluation of suspicious binaries in an isolated environment. It spins up containment structures using customized Docker environments on demand, preventing the possibility of host OS infection. It integrates ClamAV signatures locally to process fast heuristics scans prior to execution.",
                     architecture: "Container containment backend implemented in Python using the official Docker SDK. Real-time logging outputs analysis logs directly to a secure local PostgreSQL database. The task scheduler manages dispatch pipelines for parallel scans without clogging system resources.",
                     techStack: ["Python", "Docker Engine", "ClamAV daemon", "PostgreSQL", "Bash automation"],
@@ -1481,6 +1486,7 @@
                 kanban: {
                     title: "Northstar Kanban Board",
                     icon: '<i class="fa-solid fa-table-columns text-2xl text-blue-500"></i>',
+                    image: "kanban.png",
                     desc: "Northstar Kanban Board is a highly optimized agile task workspace. Utilizing Supabase Realtime Channels, task transactions and boards synchronization operate with sub-50ms latency. The client state utilizes an optimistic update pattern with a built-in 6-second transactions buffer, allowing users to instantly roll back accidental movements.",
                     architecture: "Single Page Application (SPA) designed with React, TypeScript, and styled with Tailwind CSS. Incorporates drag-and-drop structures supporting screen-reader access and keyboard navigation. State updates are verified through memoized selectors and React.memo components to minimize rendering footprint.",
                     techStack: ["React.js", "TypeScript", "Supabase DB", "Tailwind CSS"],
@@ -1489,6 +1495,7 @@
                 aiscanner: {
                     title: "AI Contract Risk Scanner",
                     icon: '<i class="fa-solid fa-file-contract text-2xl text-purple-600 dark:text-purple-400"></i>',
+                    image: "COntractScanner.png",
                     desc: "The AI Contract Risk Scanner is an automation utility designed to process legal contracts, parsing complex terms into transparent risk-weighted summaries. It leverages custom NLP scripts to match high-liability clauses and auto-renewal commitments, rating contracts on a numerical threat scale.",
                     architecture: "A Python pipeline running a lightweight NLP layer processes raw PDF document text. A client-side application written in TypeScript receives the parsed layout metrics and presents them in an interactive dashboard. Server-side processing runs on Render while static pages are hosted via GitHub Pages.",
                     techStack: ["Python", "TypeScript", "NLTK/spaCy", "Render", "GitHub Pages"],
@@ -1509,6 +1516,12 @@
                 document.getElementById('modal-icon').innerHTML = data.icon;
                 document.getElementById('modal-desc').textContent = data.desc;
                 document.getElementById('modal-architecture').textContent = data.architecture;
+                
+                const modalImg = document.getElementById('modal-image');
+                if (modalImg && data.image) {
+                    modalImg.src = data.image;
+                    modalImg.alt = data.title;
+                }
                 
                 const techContainer = document.getElementById('modal-tech');
                 techContainer.innerHTML = '';
