@@ -291,6 +291,159 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 165, 233, 0.08) !important;
         }
 
+        /* Uiverse.io Spacious74 Custom Codeforces Stats Cards */
+        .outer {
+            height: 160px;
+            border-radius: 12px;
+            padding: 1px;
+            background: radial-gradient(circle 230px at 0% 0%, #cbd5e1, #ffffff);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark .outer {
+            background: radial-gradient(circle 230px at 0% 0%, #ffffff, #0c0d0d);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .outer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+        .dark .outer:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .dot {
+            width: 5px;
+            aspect-ratio: 1;
+            position: absolute;
+            background-color: #3b82f6;
+            box-shadow: 0 0 10px #3b82f6;
+            border-radius: 100px;
+            z-index: 2;
+            right: 10%;
+            top: 10%;
+            animation: moveDot 6s linear infinite;
+        }
+        .dark .dot {
+            background-color: #fff;
+            box-shadow: 0 0 10px #ffffff;
+        }
+
+        @keyframes moveDot {
+            0%, 100% {
+                top: 10%;
+                right: 10%;
+            }
+            25% {
+                top: 10%;
+                right: calc(100% - 25px);
+            }
+            50% {
+                top: calc(100% - 20px);
+                right: calc(100% - 25px);
+            }
+            75% {
+                top: calc(100% - 20px);
+                right: 10%;
+            }
+        }
+
+        .card {
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-radius: 11px;
+            border: solid 1px #e2e8f0;
+            background: radial-gradient(circle 280px at 0% 0%, #ffffff, #f8fafc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+            color: #0f172a;
+        }
+        .dark .card {
+            border: solid 1px #202222;
+            background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+            color: #fff;
+        }
+
+        .ray {
+            width: 220px;
+            height: 45px;
+            border-radius: 100px;
+            position: absolute;
+            background-color: #3b82f6;
+            opacity: 0.12;
+            box-shadow: 0 0 50px #3b82f6;
+            filter: blur(10px);
+            transform-origin: 10%;
+            top: 0%;
+            left: 0;
+            transform: rotate(40deg);
+        }
+        .dark .ray {
+            background-color: #c7c7c7;
+            opacity: 0.4;
+            box-shadow: 0 0 50px #fff;
+        }
+
+        .card .text {
+            font-weight: bolder;
+            font-size: 2.25rem;
+            background: linear-gradient(45deg, #0f172a 4%, #3b82f6, #0f172a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+        .dark .card .text {
+            background: linear-gradient(45deg, #ffffff 4%, #94a3b8, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background-color: #e2e8f0;
+        }
+        .dark .line {
+            background-color: #2c2c2c;
+        }
+        
+        .topl {
+            top: 10%;
+            background: linear-gradient(90deg, #94a3b8 30%, #f1f5f9 70%);
+        }
+        .dark .topl {
+            background: linear-gradient(90deg, #888888 30%, #1d1f1f 70%);
+        }
+
+        .bottoml {
+            bottom: 10%;
+        }
+
+        .leftl {
+            left: 10%;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, #94a3b8 30%, #f1f5f9 70%);
+        }
+        .dark .leftl {
+            background: linear-gradient(180deg, #747474 30%, #222424 70%);
+        }
+
+        .rightl {
+            right: 10%;
+            width: 1px;
+            height: 100%;
+        }
+
         .project-card {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                         box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -718,18 +871,30 @@
 
                             <!-- Codeforces Profile Stats Dashboard -->
                             <div id="cf-profile-stats" class="grid grid-cols-2 gap-4 mb-6 mt-2">
-                                <div class="bg-white/50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/50 dark:border-slate-800/40 flex flex-col justify-between">
-                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Rating / Rank</span>
-                                    <div>
-                                        <span id="cf-rating" class="text-2xl font-bold text-slate-800 dark:text-white">-</span>
+                                <div class="outer w-full">
+                                    <div class="dot"></div>
+                                    <div class="card p-4">
+                                        <div class="ray"></div>
+                                        <div id="cf-rating" class="text">-</div>
+                                        <div class="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500 mb-1">Rating</div>
                                         <span id="cf-rank" class="block text-xs font-bold uppercase mt-1 text-slate-400">-</span>
+                                        <div class="line topl"></div>
+                                        <div class="line leftl"></div>
+                                        <div class="line bottoml"></div>
+                                        <div class="line rightl"></div>
                                     </div>
                                 </div>
-                                <div class="bg-white/50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/50 dark:border-slate-800/40 flex flex-col justify-between">
-                                    <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Problems Solved</span>
-                                    <div>
-                                        <span id="cf-solved" class="text-2xl font-bold text-slate-800 dark:text-white">-</span>
-                                        <span id="cf-max-rating" class="block text-xs text-slate-400 mt-1">Max: -</span>
+                                <div class="outer w-full">
+                                    <div class="dot"></div>
+                                    <div class="card p-4">
+                                        <div class="ray"></div>
+                                        <div id="cf-solved" class="text">-</div>
+                                        <div class="text-[10px] uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500 mb-1">Problems Solved</div>
+                                        <span id="cf-max-rating" class="block text-xs font-bold uppercase mt-1 text-slate-400">Max: -</span>
+                                        <div class="line topl"></div>
+                                        <div class="line leftl"></div>
+                                        <div class="line bottoml"></div>
+                                        <div class="line rightl"></div>
                                     </div>
                                 </div>
                             </div>
@@ -787,7 +952,7 @@
                     <!-- ASTRA Leadership -->
                     <div class="timeline-item">
                         <span class="text-xs font-mono text-[#004b8c] dark:text-blue-400 font-bold tracking-wide">Apr 2026 - Present</span>
-                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1">Founder & Student Co-ordinator</h3>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1">Co-Founder & Student Co-ordinator</h3>
                         <h4 class="text-sm font-medium text-slate-400 mb-4">ASTRA (Official Space Sciences Club, IIIT Surat)</h4>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 text-sm">
                             <li>Established the first astrophysics community at IIIT Surat; authored the organization's charter and framework.</li>
