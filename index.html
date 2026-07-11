@@ -2202,15 +2202,15 @@
 
             function showInputError(input, display) {
                 const container = input.closest('div');
-                const errorMsg = container.querySelector('.error-msg');
+                const errorMsg = container ? container.querySelector('.error-msg') : null;
                 if (display) {
                     input.classList.add('border-red-500', 'focus:ring-red-500');
                     input.classList.remove('focus:ring-blue-500', 'dark:focus:ring-blue-600');
-                    errorMsg.classList.remove('hidden');
+                    if (errorMsg) errorMsg.classList.remove('hidden');
                 } else {
                     input.classList.remove('border-red-500', 'focus:ring-red-500');
                     input.classList.add('focus:ring-blue-500', 'dark:focus:ring-blue-600');
-                    errorMsg.classList.add('hidden');
+                    if (errorMsg) errorMsg.classList.add('hidden');
                 }
             }
 
