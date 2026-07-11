@@ -60,11 +60,14 @@
         }
     </script>
 
-    <!-- Load Google Fonts (Inter for body, Fira Code for accents) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Google Fonts (Inter for body, Fira Code for accents, Unbounded for headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Unbounded:wght@400;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Load FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Load Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
     <!-- Custom CSS for advanced effects and animations -->
     <style>
@@ -150,6 +153,8 @@
         .section-heading {
             position: relative;
             display: inline-block;
+            font-family: 'Unbounded', sans-serif !important;
+            letter-spacing: -0.03em !important;
         }
         
         .section-heading::after {
@@ -157,19 +162,75 @@
             position: absolute;
             bottom: -8px;
             left: 0;
-            width: 48px;
-            height: 4.5px;
+            width: 100%;
+            height: 3px;
             border-radius: 9999px;
             background: linear-gradient(90deg, #004b8c, #3b82f6);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         .dark .section-heading::after {
             background: linear-gradient(90deg, #60a5fa, #3b82f6);
         }
         
+        /* Circuit node pointer dot */
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 100%;
+            margin-left: -3px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #3b82f6;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+            z-index: 10;
+            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: heading-node-pulse 2s infinite ease-in-out;
+        }
+
+        .dark .section-heading::before {
+            background: #60a5fa;
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+        }
+        
         .section-heading:hover::after {
-            width: 80px;
+            width: calc(100% + 24px);
+        }
+        
+        .section-heading:hover::before {
+            left: calc(100% + 24px);
+        }
+
+        @keyframes heading-node-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px rgba(59, 130, 246, 1); }
+        }
+
+        /* Custom timeline list bullet prompt style */
+        .timeline-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+        .timeline-list li {
+            position: relative;
+            padding-left: 1.15rem;
+        }
+        .timeline-list li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: -1px;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1;
+            color: #3b82f6;
+            font-weight: 800;
+        }
+        .dark .timeline-list li::before {
+            color: #60a5fa;
         }
 
         /* Custom styling for inline GitHub chart labels and cells */
@@ -565,42 +626,57 @@
             position: relative;
             padding-left: 2rem;
             padding-bottom: 2rem;
-            border-left: 2px solid rgba(226, 232, 240, 0.8);
-            transition: border-color 0.5s ease;
         }
         
-        .dark .timeline-item {
-            border-left: 2px solid rgba(51, 65, 85, 0.6);
+        /* Segmented timeline track line with gaps */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 28px;
+            bottom: 8px;
+            width: 2px;
+            background-color: rgba(226, 232, 240, 0.8);
+            transition: all 0.4s ease;
         }
         
-        .timeline-item:last-child {
-            padding-bottom: 0;
-            border-left-color: transparent;
+        .dark .timeline-item::after {
+            background-color: rgba(51, 65, 85, 0.6);
         }
         
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Solid bullet nodes */
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -9px;
+            left: -6px;
             top: 6px;
-            width: 16px;
-            height: 16px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background-color: #004b8c;
-            border: 4px solid #ffffff;
             transition: all 0.3s ease;
-            box-shadow: 0 0 0 0px rgba(0, 75, 140, 0.2);
+            z-index: 10;
         }
         
         .dark .timeline-item::before {
             background-color: #60a5fa;
-            border-color: #090d16;
-            box-shadow: 0 0 0 0px rgba(96, 165, 250, 0.2);
         }
         
         .timeline-item:hover::before {
-            transform: scale(1.25);
-            box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.3);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+
+        .timeline-item:hover::after {
+            background-color: #3b82f6;
+        }
+
+        .dark .timeline-item:hover::after {
+            background-color: #60a5fa;
         }
 
         /* Scroll Animation Triggers */
@@ -666,6 +742,9 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700 dark:bg-[#090d16] dark:text-slate-300 antialiased selection:bg-[#004b8c] selection:text-white dark:selection:bg-blue-500 theme-transition">
+
+    <!-- NASA Particles Background Canvas -->
+    <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Custom Cursor -->
     <div id="custom-cursor" class="fixed pointer-events-none z-[9999] hidden md:flex items-center justify-center -translate-x-1/2 -translate-y-1/2 select-none">
@@ -1259,7 +1338,7 @@
                         <span class="text-xs font-mono text-[#004b8c] dark:text-blue-400 font-bold tracking-wide">Jun 2026 - Jul 2026</span>
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1">Summer Intern – Robotics & Embedded Systems</h3>
                         <h4 class="text-sm font-medium text-slate-400 mb-4">Atmiya University (e-Yantra, IIT Bombay Initiative)</h4>
-                        <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm timeline-list">
                             <li>Programmed microcontroller firmware utilizing <strong>Embedded C</strong> and worked with bare-metal registers on <strong>Atmel AVR</strong> chips.</li>
                             <li>Designed and simulated complex circuit behaviors and physical feedback loops using <strong>Proteus</strong>.</li>
                             <li>Interfaced analog/digital sensors and processed raw physical values with live loop corrections.</li>
@@ -1276,7 +1355,7 @@
                         <span class="text-xs font-mono text-[#004b8c] dark:text-blue-400 font-bold tracking-wide">Apr 2026 - Present</span>
                         <h3 class="text-xl font-bold text-slate-800 dark:text-white mt-1">Co-Founder & Student Co-ordinator</h3>
                         <h4 class="text-sm font-medium text-slate-400 mb-4">ASTRA (Official Space Sciences Club, IIIT Surat)</h4>
-                        <ul class="list-disc list-outside ml-4 space-y-2 text-slate-600 dark:text-slate-400 text-sm">
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm timeline-list">
                             <li>Established the first astrophysics community at IIIT Surat; authored the organization's charter and framework.</li>
                             <li>Spearheaded recruitment and successfully executed the inaugural orientation for incoming engineering student members.</li>
                         </ul>
@@ -1550,7 +1629,7 @@
             <div class="max-w-xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-10 fade-in-up">
                     <h2 class="section-heading text-3xl font-bold text-slate-800 dark:text-white" id="heading-contact">Get In Touch</h2>
-                    <p class="text-sm text-slate-500 mt-3">Whether you want to talk systems architecture, data pipeline modeling, astrophysics, or job opportunities—my inbox is always open.</p>
+                    <p class="text-sm text-slate-500 mt-3">Whether you want to talk systems architecture, data pipeline modeling, astrophysics, or internship/training opportunities—my inbox is always open.</p>
                 </div>
                 
                 <div class="glass-card p-6 sm:p-8 rounded-3xl border shadow-lg fade-in-up delay-100 relative">
@@ -1614,7 +1693,7 @@
                 <a href="https://www.linkedin.com/in/shreedhar-s-joshi" target="_blank" class="hover:text-white transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin text-xl"></i></a>
                 <a href="mailto:shreedharjoshi1@gmail.com" class="hover:text-white transition-colors" aria-label="Email"><i class="fa-solid fa-envelope text-xl"></i></a>
             </div>
-            <p class="text-sm font-mono text-slate-500">Designed & Built by Shreedhar S. Joshi</p>
+            <p class="text-sm font-mono text-slate-500">Designed by Shreedhar S. Joshi | Built by Antigravity</p>
             <p class="text-xs mt-2 text-slate-600">&copy; 2026 All Rights Reserved.</p>
             <div class="mt-4">
                 <a href="javascript:void(0)" onclick="openPathfinderModal()" class="text-[10px] font-mono tracking-wider text-slate-600 dark:text-slate-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors uppercase"><i class="fa-solid fa-route mr-1"></i> Launch Pathfinder WASM (Easter Egg)</a>
@@ -1814,6 +1893,85 @@
             }
             typePhrase();
 
+            // Particles.js NASA Theme Background Config
+            function initParticles(isDark) {
+                const particleColor = isDark 
+                    ? ["#ffffff", "#60a5fa", "#a78bfa"] 
+                    : ["#3b82f6", "#8b5cf6", "#64748b"];
+                
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 75,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": particleColor
+                        },
+                        "shape": {
+                            "type": "circle"
+                        },
+                        "opacity": {
+                            "value": isDark ? 0.65 : 0.45,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1.2,
+                                "opacity_min": 0.05,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 2,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 130,
+                            "color": isDark ? "#60a5fa" : "#3b82f6",
+                            "opacity": isDark ? 0.09 : 0.06,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 0.5,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": false
+                            },
+                            "onclick": {
+                                "enable": false
+                            },
+                            "resize": true
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+
             // Light/Dark Theme Setup
             const themeToggleBtns = [
                 document.getElementById('theme-toggle'),
@@ -1824,19 +1982,25 @@
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');
                     localStorage.setItem('theme', 'light');
+                    initParticles(false);
                 } else {
                     document.documentElement.classList.add('dark');
                     localStorage.setItem('theme', 'dark');
+                    initParticles(true);
                 }
             }
 
             // Check stored preferences or system settings
-            if (localStorage.getItem('theme') === 'dark' || 
-                (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            const isInitiallyDark = localStorage.getItem('theme') === 'dark' || 
+                (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            
+            if (isInitiallyDark) {
                 document.documentElement.classList.add('dark');
             } else {
                 document.documentElement.classList.remove('dark');
             }
+            
+            initParticles(isInitiallyDark);
 
             themeToggleBtns.forEach(btn => {
                 if(btn) btn.addEventListener('click', toggleTheme);
