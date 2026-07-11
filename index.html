@@ -89,6 +89,31 @@
             font-family: "Black Ops One", sans-serif;
         }
         
+        /* Custom Cursor Styles */
+        @media (min-width: 768px) {
+            html, body, a, button, input, select, textarea, [role="button"], .cursor-pointer {
+                cursor: none !important;
+            }
+        }
+        #custom-cursor.hovering > div {
+            transform: scale(1.3);
+            background-color: rgba(139, 92, 246, 0.35) !important;
+            border-color: rgba(167, 139, 250, 0.6) !important;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        }
+        #custom-cursor-arrow {
+            transform: rotate(45deg) !important;
+            transform-origin: center;
+        }
+        .dark #custom-cursor-arrow path[fill="#39393A"] {
+            fill: #94a3b8 !important;
+        }
+        #custom-cursor.hovering #custom-cursor-arrow {
+            transform: rotate(45deg) scale(1.15) !important;
+        }
+        #custom-cursor.hovering #custom-cursor-arrow path[fill="#39393A"] {
+            fill: #3b82f6 !important;
+        }
         /* Advanced Glassmorphism */
         .glass-card {
             background: rgba(255, 255, 255, 0.65);
@@ -642,6 +667,21 @@
 </head>
 <body class="bg-slate-50 text-slate-700 dark:bg-[#090d16] dark:text-slate-300 antialiased selection:bg-[#004b8c] selection:text-white dark:selection:bg-blue-500 theme-transition">
 
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="fixed pointer-events-none z-[9999] hidden md:flex items-center justify-center -translate-x-1/2 -translate-y-1/2 select-none">
+        <!-- Translucent violet glassmorphic circle with 3D shadow/glow -->
+        <div class="relative w-8 h-8 rounded-full bg-violet-500/20 dark:bg-violet-400/15 backdrop-blur-[2.5px] border border-violet-400/40 dark:border-violet-300/30 shadow-[0_0_12px_rgba(139,92,246,0.35),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-2px_4px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-300">
+            <!-- Rotated Rocket Pointer in the center (SVG) -->
+            <svg viewBox="0 0 1024 1024" class="w-4.5 h-4.5 transition-all duration-300 pointer-events-none transform rotate-[45deg]" id="custom-cursor-arrow" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M512 301.2m-10 0a10 10 0 1 0 20 0 10 10 0 1 0-20 0Z" fill="#E73B37" />
+                <path d="M400.3 744.5c2.1-0.7 4.1-1.4 6.2-2-2 0.6-4.1 1.3-6.2 2z m0 0c2.1-0.7 4.1-1.4 6.2-2-2 0.6-4.1 1.3-6.2 2z" fill="#39393A" />
+                <path d="M511.8 256.6c24.4 0 44.2 19.8 44.2 44.2S536.2 345 511.8 345s-44.2-19.8-44.2-44.2 19.9-44.2 44.2-44.2m0-20c-35.5 0-64.2 28.7-64.2 64.2s28.7 64.2 64.2 64.2 64.2-28.7 64.2-64.2-28.7-64.2-64.2-64.2z" fill="#E73B37" />
+                <path d="M730.7 529.5c0.4-8.7 0.6-17.4 0.6-26.2 0-179.6-86.1-339.1-219.3-439.5-133.1 100.4-219.2 259.9-219.2 439.5 0 8.8 0.2 17.5 0.6 26.1-56 56-90.6 133.3-90.6 218.7 0 61.7 18 119.1 49.1 167.3 30.3-49.8 74.7-90.1 127.7-115.3 39-18.6 82.7-29 128.8-29 48.3 0 93.9 11.4 134.3 31.7 52.5 26.3 96.3 67.7 125.6 118.4 33.4-49.4 52.9-108.9 52.9-173.1 0-85.4-34.6-162.6-90.5-218.6zM351.1 383.4c9.2-37.9 22.9-74.7 40.6-109.5a502.1 502.1 0 0 1 63.6-95.9c17.4-20.6 36.4-39.9 56.8-57.5 20.4 17.6 39.4 36.9 56.8 57.5 24.8 29.5 46.2 61.8 63.6 95.9 17.7 34.8 31.4 71.6 40.6 109.5 8.7 35.8 13.5 72.7 14.2 109.9C637.4 459 577 438.9 512 438.9c-65 0-125.3 20.1-175.1 54.4 0.7-37.2 5.5-74.1 14.2-109.9z m-90.6 449.2c-9.1-27-13.7-55.5-13.7-84.4 0-35.8 7-70.6 20.8-103.2 8.4-19.8 19-38.4 31.9-55.5 9.7 61.5 29.5 119.7 57.8 172.6-36.4 17.8-69 41.6-96.8 70.5z m364.2-85.3c-0.7-0.3-1.5-0.5-2.2-0.8-0.4-0.2-0.9-0.3-1.3-0.5-0.6-0.2-1.3-0.5-1.9-0.7-0.8-0.3-1.5-0.5-2.3-0.8-0.8-0.3-1.5-0.5-2.3-0.7l-0.9-0.3c-1-0.3-2.1-0.7-3.1-1-1.2-0.4-2.4-0.7-3.5-1.1l-3-0.9c-0.2-0.1-0.4-0.1-0.7-0.2-1.1-0.3-2.3-0.7-3.4-1-1.2-0.3-2.4-0.6-3.5-0.9l-3.6-0.9-3.6-0.9c-1-0.3-2.1-0.5-3.1-0.7-1.2-0.3-2.4-0.5-3.6-0.8-1.3-0.3-2.5-0.6-3.8-0.8h-0.3c-0.9-0.2-1.9-0.4-2.8-0.6-0.4-0.1-0.7-0.1-1.1-0.2-1.1-0.2-2.2-0.4-3.4-0.6-1.2-0.2-2.4-0.4-3.6-0.7l-5.4-0.9c-0.9-0.1-1.9-0.3-2.8-0.4-0.8-0.1-1.6-0.3-2.5-0.4-2.6-0.4-5.1-0.7-7.7-1-1.2-0.1-2.3-0.3-3.5-0.4h-0.4c-0.9-0.1-1.8-0.2-2.8-0.3-1.1-0.1-2.1-0.2-3.2-0.3-1.7-0.2-3.4-0.3-5.1-0.4-0.8-0.1-1.5-0.1-2.3-0.2-0.9-0.1-1.9-0.1-2.8-0.2-0.4 0-0.8 0-1.2-0.1-1.1-0.1-2.1-0.1-3.2-0.2-0.5 0-1-0.1-1.5-0.1-1.3-0.1-2.6-0.1-3.9-0.1-0.8 0-1.5-0.1-2.3-0.1-1.2 0-2.4 0-3.5-0.1h-13.9c-2.3 0-4.6 0.1-6.9 0.2-0.9 0-1.9 0.1-2.8 0.1-0.8 0-1.5 0.1-2.3 0.1-1.4 0.1-2.8 0.2-4.1 0.3-1.4 0.1-2.7 0.2-4.1 0.3-1.4 0.1-2.7 0.2-4.1 0.4-0.6 0-1.2 0.1-1.8 0.2l-7.8 0.9c-1.1 0.1-2.1 0.3-3.2 0.4-1 0.1-2.1 0.3-3.1 0.4-3.2 0.5-6.4 0.9-9.5 1.5-0.7 0.1-1.4 0.2-2.1 0.4-0.9 0.1-1.7 0.3-2.6 0.5-1.1 0.2-2.3 0.4-3.4 0.6-0.9 0.2-1.7 0.3-2.6 0.5-0.4 0.1-0.8 0.1-1.1 0.2-0.7 0.1-1.4 0.3-2.1 0.4-1.2 0.3-2.4 0.5-3.6 0.8-1.2 0.3-2.4 0.5-3.6 0.8-0.2 0-0.4 0.1-0.6 0.1-0.5 0.1-1 0.2-1.5 0.4-1.1 0.3-2.3 0.6-3.5 0.9-1.3 0.3-2.5 0.6-3.8 1-0.4 0.1-0.9 0.2-1.4 0.4-1.3 0.4-2.7 0.7-4 1.1-1.5 0.4-3 0.9-4.6 1.3-1 0.3-2.1 0.6-3.1 1-2.1 0.6-4.1 1.3-6.2 2-0.7 0.2-1.4 0.5-2.1 0.7-15-27.5-27.4-56.4-37-86.2-11.7-36.1-19.2-73.6-22.5-111.6-0.6-6.7-1-13.3-1.3-20-0.1-1.2-0.1-2.4-0.1-3.6-0.1-1.2-0.1-2.4-0.1-3.6 0-1.2-0.1-2.4-0.1-3.6 0-1.2-0.1-2.4-0.1-3.7 18.8-14 39.2-25.8 61-35 36.1-15.3 74.5-23 114.1-23 39.6 0 78 7.8 114.1 23 21.8 9.2 42.2 20.9 61 35v0.1c0 1 0 1.9-0.1 2.9 0 1.4-0.1 2.8-0.1 4.3 0 0.7 0 1.3-0.1 2-0.1 1.8-0.1 3.5-0.2 5.3-0.3 6.7-0.8 13.3-1.3 20-3.3 38.5-11 76.5-23 113-9.7 30.3-22.3 59.4-37.6 87.1z m136.8 90.9a342.27 342.27 0 0 0-96.3-73.2c29.1-53.7 49.5-112.8 59.4-175.5 12.8 17.1 23.4 35.6 31.8 55.5 13.8 32.7 20.8 67.4 20.8 103.2 0 31-5.3 61.3-15.7 90z" fill="#39393A" />
+                <path d="M512 819.3c8.7 0 24.7 22.9 24.7 60.4s-16 60.4-24.7 60.4-24.7-22.9-24.7-60.4 16-60.4 24.7-60.4m0-20c-24.7 0-44.7 36-44.7 80.4 0 44.4 20 80.4 44.7 80.4s44.7-36 44.7-80.4c0-44.4-20-80.4-44.7-80.4z" fill="#E73B37" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Global Header/Nav -->
     <header>
         <nav class="fixed w-full z-50 transition-all duration-300 glass-nav border-b border-slate-200/50 dark:border-slate-800/40 shadow-sm py-4" id="navbar">
@@ -769,8 +809,8 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 fade-in-up">
                     <!-- IIIT Surat -->
-                    <div class="glass-card p-6 rounded-2xl border hover:shadow-md transition-shadow relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-[#004b8c]/5 dark:bg-blue-400/5 rounded-bl-full z-0 pointer-events-none"></div>
+                    <div class="glass-card p-6 rounded-2xl border hover:shadow-md transition-shadow relative overflow-hidden group interactive-bubble-card">
+                        <div class="absolute -top-10 -right-10 w-28 h-28 bg-[#004b8c]/5 dark:bg-blue-400/5 rounded-full z-0 pointer-events-none bubble-accent"></div>
                         <div class="relative z-10">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-lg font-bold text-slate-800 dark:text-white">IIIT, Surat</h3>
@@ -789,8 +829,8 @@
                     </div>
 
                     <!-- IIT Madras -->
-                    <div class="glass-card p-6 rounded-2xl border hover:shadow-md transition-shadow relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-24 h-24 bg-[#3b82f6]/5 dark:bg-blue-400/5 rounded-bl-full z-0 pointer-events-none"></div>
+                    <div class="glass-card p-6 rounded-2xl border hover:shadow-md transition-shadow relative overflow-hidden group interactive-bubble-card">
+                        <div class="absolute -top-10 -right-10 w-28 h-28 bg-[#3b82f6]/5 dark:bg-blue-400/5 rounded-full z-0 pointer-events-none bubble-accent"></div>
                         <div class="relative z-10">
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-lg font-bold text-slate-800 dark:text-white">IIT, Madras</h3>
@@ -1251,8 +1291,8 @@
                 <h2 class="section-heading fade-in-up text-center block mx-auto text-3xl font-bold text-slate-800 dark:text-white" id="heading-awards">Honors & Awards</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 fade-in-up delay-100">
-                    <div class="glass-card p-6 rounded-2xl border flex gap-4 items-start hover:shadow-md transition-shadow relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-16 h-16 bg-yellow-500/5 rounded-bl-full pointer-events-none"></div>
+                    <div class="glass-card p-6 rounded-2xl border flex gap-4 items-start hover:shadow-md transition-shadow relative overflow-hidden group interactive-bubble-card">
+                        <div class="absolute -top-8 -right-8 w-24 h-24 bg-yellow-500/5 rounded-full pointer-events-none bubble-accent"></div>
                         <i class="fa-solid fa-trophy text-yellow-500 mt-1 text-2xl relative z-10"></i>
                         <div class="relative z-10 flex-grow">
                             <h4 class="font-bold text-sm text-slate-800 dark:text-white">State Topper | NSEJS (May 2022)</h4>
@@ -1268,8 +1308,8 @@
                         </div>
                     </div>
                     
-                    <div class="glass-card p-6 rounded-2xl border flex gap-4 items-start hover:shadow-md transition-shadow relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full pointer-events-none"></div>
+                    <div class="glass-card p-6 rounded-2xl border flex gap-4 items-start hover:shadow-md transition-shadow relative overflow-hidden group interactive-bubble-card">
+                        <div class="absolute -top-8 -right-8 w-24 h-24 bg-blue-500/5 rounded-full pointer-events-none bubble-accent"></div>
                         <i class="fa-solid fa-award text-blue-500 mt-1 text-2xl relative z-10"></i>
                         <div class="relative z-10 flex-grow">
                             <h4 class="font-bold text-sm text-slate-800 dark:text-white">INSPIRE Awardee - MANAK (Jan 2023)</h4>
@@ -1451,9 +1491,9 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 fade-in-up">
                     <!-- Photography Card -->
-                    <div class="glass-card p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[260px]">
+                    <div class="glass-card p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[260px] interactive-bubble-card">
                         <!-- Camera aperture/glow background effect -->
-                        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-blue-500/5 dark:bg-blue-400/5 rounded-full z-0 pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-blue-500/5 dark:bg-blue-400/5 rounded-full z-0 pointer-events-none bubble-accent"></div>
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 to-sky-400 opacity-80 z-10"></div>
                         
                         <div class="relative z-10 space-y-4">
@@ -1477,9 +1517,9 @@
                     </div>
                     
                     <!-- BandLab (SoundLab) Card -->
-                    <div class="glass-card p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[260px]">
+                    <div class="glass-card p-8 rounded-3xl border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between min-h-[260px] interactive-bubble-card">
                         <!-- Soundwave/glow background effect -->
-                        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-purple-500/5 dark:bg-purple-400/5 rounded-full z-0 pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-purple-500/5 dark:bg-purple-400/5 rounded-full z-0 pointer-events-none bubble-accent"></div>
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-500 to-pink-400 opacity-80 z-10"></div>
                         
                         <div class="relative z-10 space-y-4">
@@ -2734,7 +2774,7 @@
                 galleryGrid.innerHTML = '';
                 
                 images.forEach((img, index) => {
-                    const cardName = cleanImageName(img.name);
+                    const cardName = `Photo #${index + 1}`;
                     const item = document.createElement('div');
                     item.className = 'relative overflow-hidden rounded-2xl aspect-square bg-slate-900 group cursor-pointer border border-slate-700/50 hover:border-blue-400/50 transition-all duration-300 shadow-md';
                     item.innerHTML = `
@@ -2794,11 +2834,11 @@
                 
                 if (lightboxImg) {
                     lightboxImg.src = img.url;
-                    lightboxImg.alt = img.name;
+                    lightboxImg.alt = `Photo #${currentLightboxIndex + 1}`;
                 }
                 
                 if (lightboxCaption) {
-                    lightboxCaption.textContent = cleanImageName(img.name);
+                    lightboxCaption.textContent = `Photo #${currentLightboxIndex + 1}`;
                 }
                 
                 if (lightboxCounter) {
@@ -2860,6 +2900,76 @@
                     }, 300);
                 }
             };
+
+            // Custom Cursor Controller
+            const cursor = document.getElementById('custom-cursor');
+            if (cursor) {
+                let mouseX = 0, mouseY = 0;
+                let cursorX = 0, cursorY = 0;
+                
+                // Show cursor when mouse enters window
+                document.addEventListener('mouseenter', () => {
+                    cursor.classList.remove('hidden');
+                });
+                
+                // Hide cursor when mouse leaves window
+                document.addEventListener('mouseleave', () => {
+                    cursor.classList.add('hidden');
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    // Position cursor instantly with zero latency
+                    cursor.style.left = `${e.clientX}px`;
+                    cursor.style.top = `${e.clientY}px`;
+                    
+                    // Immediately show if hidden
+                    if (cursor.classList.contains('hidden')) {
+                        cursor.classList.remove('hidden');
+                    }
+                });
+                
+                // Hover effect on interactive elements via high-performance event delegation
+                document.addEventListener('mouseover', (e) => {
+                    const interactive = e.target.closest('a, button, input, select, textarea, [role="button"], .cursor-pointer');
+                    if (interactive) {
+                        cursor.classList.add('hovering');
+                    } else {
+                        cursor.classList.remove('hovering');
+                    }
+                });
+            }
+
+            // Interactive Accent Bubble Tracker
+            const bubbleCards = document.querySelectorAll('.interactive-bubble-card');
+            bubbleCards.forEach(card => {
+                const bubble = card.querySelector('.bubble-accent');
+                if (!bubble) return;
+                
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const bubbleWidth = bubble.offsetWidth;
+                    const bubbleHeight = bubble.offsetHeight;
+                    
+                    bubble.style.left = `${x - bubbleWidth / 2}px`;
+                    bubble.style.top = `${y - bubbleHeight / 2}px`;
+                    bubble.style.right = 'auto';
+                    bubble.style.bottom = 'auto';
+                    bubble.style.transform = 'none';
+                    bubble.style.transition = 'none';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    bubble.style.left = '';
+                    bubble.style.top = '';
+                    bubble.style.right = '';
+                    bubble.style.bottom = '';
+                    bubble.style.transform = '';
+                    bubble.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                });
+            });
         });
     </script>
     <!-- Photography Gallery Modal Overlay -->
