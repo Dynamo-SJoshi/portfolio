@@ -1245,6 +1245,8 @@
                         <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="systems-security">Security & Systems</button>
                         <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="web-apps">Web Apps</button>
                         <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="android">Android</button>
+                        <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="ai-vision">AI & Computer Vision</button>
+                        <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="embedded-edge">Embedded / Edge</button>
                         <button class="filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all" data-filter="data-science">Data Science</button>
                     </div>
                 </div>
@@ -1303,16 +1305,16 @@
                     </div>
 
                     <!-- Project 3: AI Scanner -->
-                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="data-science" data-project-id="aiscanner">
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="data-science ai-vision web-apps" data-project-id="aiscanner">
                         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 opacity-80 z-10"></div>
                         <div class="p-6 flex-grow flex flex-col">
                             <div class="flex justify-between items-center mb-4">
                                 <i class="fa-solid fa-file-contract text-3xl text-purple-600 dark:text-purple-400"></i>
-                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">NLP / AI Analytics</span>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">Legal-Tech / GenAI</span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">AI Contract Risk Scanner</h3>
                             <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
-                                Automated parsing tool to translate complex legal contracts into simplified risk-weighted summaries. Implemented pattern-matching logic to flag high-risk clauses. Managed full-stack deployment on Render and GitHub Pages.
+                                AI-powered legal dashboard that translates complex PDF contracts into plain English, generates a 0–100 safety score, and visualizes liabilities via a risk heatmap with SHA-256 caching and multi-key LLM failover.
                             </p>
                             <span class="text-xs font-semibold text-purple-600 dark:text-purple-400 flex items-center gap-1.5 mt-auto group-hover:underline">
                                 Read Case Study <i class="fa-solid fa-arrow-right"></i>
@@ -1320,9 +1322,9 @@
                         </div>
                         <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
                             <div class="flex flex-wrap gap-2 font-mono text-[10px] text-purple-600 dark:text-purple-400">
-                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Python</span>
-                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">TS</span>
-                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">NLP</span>
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">TypeScript</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Node.js</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Gemini AI</span>
                                 <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Render</span>
                             </div>
                         </div>
@@ -1378,6 +1380,84 @@
                                 <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">MongoDB</span>
                                 <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Mongoose</span>
                                 <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Multer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: AI Civic Empowerment Portal -->
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="web-apps ai-vision data-science" data-project-id="civicportal">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-80 z-10"></div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fa-solid fa-scale-balanced text-3xl text-emerald-600 dark:text-emerald-400"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">Legal-Tech / GenAI</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">AI Civic Empowerment Portal</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
+                                Open-source, zero-backend civic &amp; legal-tech suite for India powered by Gemini AI and Web Speech API. Automates RTI Act 2005 filing, myScheme welfare eligibility grounding, and CPA 2019 consumer legal notices.
+                            </p>
+                            <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 mt-auto group-hover:underline">
+                                Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
+                            <div class="flex flex-wrap gap-2 font-mono text-[10px] text-emerald-600 dark:text-emerald-400">
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">React</span>
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Tailwind</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Gemini AI</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Web Speech</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: VisionX (BAS HAR Assistant) -->
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="ai-vision embedded-edge data-science" data-project-id="visionx">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-400 opacity-80 z-10"></div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fa-solid fa-user-astronaut text-3xl text-cyan-600 dark:text-cyan-400"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">Space-Tech / Edge CV</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">VisionX (BAS HAR Assistant)</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
+                                Offline-ready AI Human Activity Recognition (HAR) assistant built for on-board Bharatiya Antariksha Station (BAS) experiment tracking and real-time astronaut protocol sequence verification.
+                            </p>
+                            <span class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 flex items-center gap-1.5 mt-auto group-hover:underline">
+                                Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
+                            <div class="flex flex-wrap gap-2 font-mono text-[10px] text-cyan-600 dark:text-cyan-400">
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Python</span>
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">OpenCV</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">FastAPI</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Streamlit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: TinyML Object Size Classifier -->
+                    <div class="project-card glass-card flex flex-col h-full rounded-2xl border overflow-hidden hover:shadow-xl hover:-translate-y-1 relative group cursor-pointer" data-category="embedded-edge ai-vision data-science" data-project-id="tinymlsize">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500 opacity-80 z-10"></div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <div class="flex justify-between items-center mb-4">
+                                <i class="fa-solid fa-microchip text-3xl text-amber-600 dark:text-amber-400"></i>
+                                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">TinyML / Edge Vision</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">TinyML Object Size Classifier</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 line-clamp-4 flex-grow">
+                                Ultra-lightweight TinyML vision pipeline separating NanoDet ONNX object detection from a &lt;3 KB INT8 quantized neural network for 0.021 ms real-time apparent object size classification on edge devices.
+                            </p>
+                            <span class="text-xs font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1.5 mt-auto group-hover:underline">
+                                Read Case Study <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                        <div class="px-6 py-4 bg-slate-100/50 dark:bg-slate-800/40 border-t border-slate-200/50 dark:border-slate-800/40 mt-auto">
+                            <div class="flex flex-wrap gap-2 font-mono text-[10px] text-amber-600 dark:text-amber-400">
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Python</span>
+                                <span class="bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">TinyML</span>
+                                <span class="bg-white dark:bg-slate-950 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">ONNX</span>
+                                <span class="bg-white dark:bg-slate-955 px-2 py-0.5 rounded border border-slate-200/50 dark:border-slate-800/50">Embedded C</span>
                             </div>
                         </div>
                     </div>
@@ -2177,10 +2257,11 @@
                     title: "AI Contract Risk Scanner",
                     icon: '<i class="fa-solid fa-file-contract text-2xl text-purple-600 dark:text-purple-400"></i>',
                     image: "COntractScanner.png",
-                    desc: "The AI Contract Risk Scanner is an automation utility designed to process legal contracts, parsing complex terms into transparent risk-weighted summaries. It leverages custom NLP scripts to match high-liability clauses and auto-renewal commitments, rating contracts on a numerical threat scale.",
-                    architecture: "A Python pipeline running a lightweight NLP layer processes raw PDF document text. A client-side application written in TypeScript receives the parsed layout metrics and presents them in an interactive dashboard. Server-side processing runs on Render while static pages are hosted via GitHub Pages.",
-                    techStack: ["Python", "TypeScript", "NLTK/spaCy", "Render", "GitHub Pages"],
-                    github: "https://github.com/Dynamo-SJoshi/AI-Risk-Scanner",
+                    desc: "ContractScanner is an AI-powered legal-tech dashboard that translates complex PDF contracts into plain 5th-grade English. Using the Gemini API, it scans for hidden legal liabilities, generates a 0–100 safety score, and visualizes risk distribution across the document via an interactive heatmap.",
+                    architecture: "Built with a React, TypeScript, and Vite frontend paired with a Node.js & Express backend. Implements SHA-256 in-memory contract hashing (24-hour TTL) to eliminate redundant LLM calls, a Multi-Key Sequential Failover Stack Manager supporting up to 6 Gemini and OpenRouter API keys, and a zero-downtime deterministic fallback engine using structural legal density scoring.",
+                    diagram: "  [ Frontend: React + TypeScript + Vite (PDF Upload) ]\n                            │\n                            ▼\n  +------------------------------------------------------+\n  |           Node.js & Express Backend Server           |\n  |  1. SHA-256 Contract Hash Cache (24h TTL / 500 max)  |\n  |  2. Structural Legal Density Scoring Engine          |\n  +------------+----------------------------+------------+\n               │                            │\n               ▼ (Primary Stack)            ▼ (Zero-Downtime Fallback)\n  [ 6-Key Gemini / OpenRouter ]   [ Deterministic Regex & ]\n  [ Sequential Failover Pool  ]   [ Density Rule Engine   ]\n               │                            │\n               +-------------+--------------+\n                             │\n                             ▼\n   [ 0–100 Safety Score + Risk Heatmap + Plain English ]",
+                    techStack: ["TypeScript", "React", "Node.js & Express", "Gemini API / OpenRouter", "SHA-256 Caching", "Render"],
+                    github: "https://github.com/Dynamo-SJoshi/AI-Contract-Risk-Scanner",
                     live: "https://ai-risk-scanner-2.onrender.com/"
                 },
                 soulify: {
@@ -2191,7 +2272,7 @@
                     architecture: "Android client leverages okHttp for JWT authenticated request delivery and Gson for parsing response models. The backend is powered by a Node.js/Express server that securely validates tokens and queries a MongoDB database using Mongoose schemas. Swipe features are cached locally inside a repository pattern layout, reducing network round-trips.",
                     diagram: " +-------------------------------------------------------------------+\n |                           ANDROID CLIENT                          |\n |  +-----------------------+  +----------------------------------+  |\n |  |       UI Layer        |  |          Local Storage           |  |\n |  |  (Discover/Profile/   |  |        (SessionManager &         |  |\n |  |   Matches Fragments)  |  |         DataRepository)          |  |\n |  +-----------+-----------+  +----------------+-----------------+  |\n |              |                               |                    |\n |              v                               v                    |\n |  +-------------------------------------------------------------+  |\n |  |                 Network Client (OkHttp + Gson)              |  |\n +--+-------------------------------+------------------------------+-+\n                                    |\n                         HTTPS (JSON payload / JWT)\n                                    |\n                                    v\n +-------------------------------------------------------------------+\n |                           BACKEND API                             |\n |  +-------------------------------------------------------------+  |\n |  |                      Express.js Server                      |  |\n |  |               (JWT Middleware & Route Handlers)             |  |\n |  +-------------------------------+-----------------------------+  |\n |                                  |                                |\n |                               Mongoose                            |\n |                                  |                                |\n |                                  v                                |\n |  +-------------------------------------------------------------+  |\n |  |                        MongoDB Database                     |  |\n |  |                (User profiles, chats, and auth)             |  |\n |  +-------------------------------------------------------------+  |\n +-------------------------------------------------------------------+",
                     techStack: ["Android SDK", "Java", "Node.js", "Express", "MongoDB", "JWT", "OkHttp", "Gson"],
-                    github: "https://github.com/Dynamo-SJoshi",
+                    github: "https://github.com/Dynamo-SJoshi/Soulify",
                     live: ""
                 },
                 neon5: {
@@ -2204,6 +2285,39 @@
                     techStack: ["HTML5/CSS3", "JavaScript", "Node.js", "Express.js", "MongoDB", "Mongoose", "Multer", "Cors"],
                     github: "https://github.com/Dynamo-SJoshi/neon5-space",
                     live: "https://dynamo-sjoshi.github.io/neon5-space/HTML%20project/test1.html"
+                },
+                civicportal: {
+                    title: "Rights Navigator — AI Civic Empowerment Portal",
+                    icon: '<i class="fa-solid fa-scale-balanced text-2xl text-emerald-500"></i>',
+                    image: "",
+                    desc: "Rights Navigator is an open-source, privacy-first civic transparency and legal-tech suite for India. Operating on a 100% client-side, zero-backend architecture, it empowers citizens to exercise statutory rights under the RTI Act 2005, evaluate eligibility across central and state welfare schemes via live web grounding, generate 15-day pre-litigation consumer notices under CPA 2019 (e-Jagriti), and scan legal contracts without lawyer fees.",
+                    architecture: "Built with React and Tailwind CSS on a strict zero-backend architecture to guarantee 100% client-side data privacy. Integrates native browser Web Speech API (SpeechRecognition) for hands-free voice intake and interfaces directly with Gemini Flash using structured JSON schemas and live web search grounding across official .gov.in portals, exporting statutory-compliant PDFs client-side.",
+                    diagram: "  [ Citizen Input: Text / Web Speech API (Voice Intake) ]\n                             │\n                             ▼ (100% Client-Side / Zero Backend)\n  +-------------------------------------------------------------+\n  |                 React + Tailwind SPA Engine                 |\n  +------+----------------------+----------------------+--------+\n         │                      │                      │\n         ▼                      ▼                      ▼\n  [ RTI Act 2005 ]     [ myScheme Engine ]    [ CPA 2019 Notice ]\n  Ministry Routing     Live .gov.in Search    Violation Analysis\n         │                      │                      │\n         +----------------------+----------------------+\n                                │\n                                ▼ (Gemini AI Structured Synthesis)\n             [ Sanitized Statutory PDF & Action Plan ]",
+                    techStack: ["React", "Tailwind CSS", "Gemini AI", "Web Speech API", "Client-Side PDF", "Zero-Backend Privacy"],
+                    github: "https://github.com/Dynamo-SJoshi/ai-civic-empowerment-portal",
+                    live: ""
+                },
+                visionx: {
+                    title: "VisionX — BAS Human Activity Recognition Assistant",
+                    icon: '<i class="fa-solid fa-user-astronaut text-2xl text-cyan-500"></i>',
+                    image: "",
+                    desc: "Developed for Smart India Hackathon (SIH), VisionX is an offline-first, edge-ready Bio-Astronautics Human Activity Recognition (HAR) assistant designed for on-board Bharatiya Antariksha Station (BAS) experiments. It tracks astronaut procedures in real time and validates complex multi-step experimental protocols without relying on cloud connectivity.",
+                    architecture: "Processes live USB camera feeds, RTSP IP streams, or synthetic test patterns through a modular computer vision pipeline (Object Detection + Pose Estimation + Action Recognition). A graph-based Protocol State Machine validates step sequences in real time (detecting SKIPPED, WRONG_ORDER, or UNEXPECTED actions), triggers non-blocking offline TTS voice alerts via pyttsx3, logs structured telemetry to JSONL/CSV, and serves an interactive Streamlit dashboard via FastAPI.",
+                    diagram: "  [ Live USB Camera / RTSP Stream / Synthetic Feed ]\n                          │\n                          ▼\n  +------------------------------------------------+\n  |         Modular Vision Pipeline (OpenCV)       |\n  |  [Object Detector] -> [Pose] -> [Action Model] |\n  +-----------------------+------------------------+\n                          │\n                          ▼\n  +------------------------------------------------+\n  |      Graph-Based Protocol State Machine        |\n  |   (Validates: COMPLETED | SKIPPED | ANOMALY)   |\n  +-------+---------------+---------------+--------+\n          │               │               │\n          ▼               ▼               ▼\n  [ pyttsx3 TTS ]  [ JSONL / CSV ]  [ FastAPI + Streamlit ]\n   Voice Alerts     Evidence Logs    Monitoring Dashboard",
+                    techStack: ["Python", "OpenCV", "FastAPI", "Streamlit", "Pose & Action Recognition", "pyttsx3 Offline TTS"],
+                    github: "https://github.com/Dynamo-SJoshi/VisionX_SIHproject",
+                    live: ""
+                },
+                tinymlsize: {
+                    title: "TinyML Apparent Object Size Classifier",
+                    icon: '<i class="fa-solid fa-microchip text-2xl text-amber-500"></i>',
+                    image: "",
+                    desc: "An ultra-lightweight TinyML computer vision pipeline engineered for edge and embedded devices. By decoupling spatial localization from apparent-size classification, the system avoids feeding raw pixel tensors into the classifier—achieving a 0.021 ms classification inference time and compiling down to a <3 KB standalone C firmware model.",
+                    architecture: "Uses a pretrained NanoDet ONNX model via OpenCV DNN solely to localize bounding boxes [x, y, w, h]. A geometric feature extractor computes 4 normalized ratios (width, height, area, and aspect ratio) and feeds them into a quantized INT8 Multi-Layer Perceptron (4 -> Dense(8) -> Dense(8) -> Dense(6)) with temporal smoothing to classify objects into 6 apparent frame coverage tiers from VERY_SMALL to HUGE.",
+                    diagram: "                  [ Camera / Image Frame ]\n                             │\n                             ▼\n  ┌─────────────────────────────────────────────────────┐\n  │  NanoDet ONNX Detector (OpenCV DNN - FP32 / INT8)   │\n  └──────────────────────────┬──────────────────────────┘\n                             │ Bounding Box [x, y, w, h]\n                             ▼\n  ┌─────────────────────────────────────────────────────┐\n  │  Geometric Feature Extractor (4 Normalized Ratios)  │\n  │   [width_ratio, height_ratio, area_ratio, aspect]   │\n  └──────────────────────────┬──────────────────────────┘\n                             │ 4 Float / INT8 Values (0.021 ms)\n                             ▼\n  ┌─────────────────────────────────────────────────────┐\n  │   Tiny MLP (4 -> 8 -> 8 -> 6) | < 3 KB C Firmware   │\n  └──────────────────────────┬──────────────────────────┘\n                             │\n                             ▼\n   [ VERY_SMALL | SMALL | MEDIUM | LARGE | VERY_LARGE | HUGE ]",
+                    techStack: ["Python", "TinyML", "OpenCV ONNX DNN", "NanoDet", "INT8 Quantization", "Embedded C (<3KB)"],
+                    github: "https://github.com/Dynamo-SJoshi/object_size_classifier",
+                    live: ""
                 }
             };
 
@@ -2587,20 +2701,11 @@
 
             async function fetchGitHubRepos() {
                 try {
-                    const pinnedNames = ['SafeGate', 'kanban_board', 'AI-Risk-Scanner', 'neon5-space'];
+                    const pinnedNames = ['SafeGate', 'object_size_classifier', 'kanban_board', 'AI-Contract-Risk-Scanner'];
                     
                     const promises = pinnedNames.map(repoName => 
                         fetch(`https://api.github.com/repos/${ghUsername}/${repoName}`)
-                            .then(res => {
-                                if (!res.ok) {
-                                    if (repoName === 'AI-Risk-Scanner') {
-                                        return fetch(`https://api.github.com/repos/${ghUsername}/COntractScanner`)
-                                            .then(r => r.ok ? r.json() : null);
-                                    }
-                                    return null;
-                                }
-                                return res.json();
-                            })
+                            .then(res => res.ok ? res.json() : null)
                     );
                     
                     const repos = (await Promise.all(promises)).filter(repo => repo !== null);
@@ -2660,25 +2765,25 @@
             function renderFallbackRepos() {
                 const fallbacks = [
                     {
-                        name: 'portfolio',
-                        html_url: 'https://github.com/Dynamo-SJoshi/portfolio',
-                        language: 'JavaScript',
-                        stargazers_count: 0,
-                        description: 'Personal portfolio showcase integrating a custom Dijkstra Pathfinder WebAssembly utility.'
-                    },
-                    {
                         name: 'SafeGate',
                         html_url: 'https://github.com/Dynamo-SJoshi/SafeGate',
                         language: 'Python',
-                        stargazers_count: 0,
-                        description: 'Containment virtualization utility to isolate and scan suspicious binaries using Docker containers.'
+                        stargazers_count: 2,
+                        description: 'Browser-assisted cloud sandbox for safely inspecting suspicious downloads before opening them locally.'
                     },
                     {
-                        name: 'COntractScanner',
-                        html_url: 'https://github.com/Dynamo-SJoshi/COntractScanner',
+                        name: 'object_size_classifier',
+                        html_url: 'https://github.com/Dynamo-SJoshi/object_size_classifier',
                         language: 'Python',
                         stargazers_count: 0,
-                        description: 'Smart contract vulnerability auditor deploying regex matching rules to flag high-risk calls.'
+                        description: 'Ultra-lightweight TinyML pipeline for real-time apparent object size classification on edge devices.'
+                    },
+                    {
+                        name: 'AI-Contract-Risk-Scanner',
+                        html_url: 'https://github.com/Dynamo-SJoshi/AI-Contract-Risk-Scanner',
+                        language: 'TypeScript',
+                        stargazers_count: 1,
+                        description: 'AI-powered dashboard that translates complex contracts into plain English with a 0-100 safety score and heatmap.'
                     }
                 ];
                 reposContainer.innerHTML = '';
